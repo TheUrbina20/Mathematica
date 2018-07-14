@@ -1,0 +1,341 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 11.1' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[     10945,        331]
+NotebookOptionsPosition[      9199,        283]
+NotebookOutlinePosition[      9544,        298]
+CellTagsIndexPosition[      9501,        295]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell["\<\
+Importando informaci\[OAcute]n a partir de un archivo texto.
+  Caracter\[IAcute]sticas de la instancia :
++ N\[UAcute]mero de poligonos : m
++ Coordenadas del poligono : (R (x), R (y))
++ Coordenadas top - left y bottom - rigth de cada poligono : (x, y)
++ Punto de origen : k\
+\>", "Text",
+ CellChangeTimes->{{3.7403382487445583`*^9, 
+  3.740338301194624*^9}},ExpressionUUID->"6b571891-dd70-4ad9-81ef-\
+2891a621286e"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"datos", "=", 
+   RowBox[{"Import", "[", 
+    RowBox[{"\"\<C:/PDelfin/datos.txt\>\"", ",", "\"\<Table\>\""}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{"datos", " ", "//", " ", "TableForm"}]}], "Input",
+ CellChangeTimes->{{3.740338161236779*^9, 
+  3.740338185915292*^9}},ExpressionUUID->"9ede8caa-773f-4fa4-b976-\
+88cbf8fb44a6"],
+
+Cell[BoxData[
+ InterpretationBox[GridBox[{
+    {"10", "5000", "5000", "\<\"\"\>"},
+    {"2000", "3000", "2500", "2000"},
+    {"4000", "2750", "5000", "2000"},
+    {"0", "5000", "2500", "3000"},
+    {"2500", "5000", "4000", "2000"},
+    {"4000", "5000", "5000", "2750"},
+    {"2000", "2000", "3750", "0"},
+    {"3750", "2000", "5000", "1250"},
+    {"3750", "1250", "5000", "0"},
+    {"0", "500", "2000", "0"},
+    {"0", "3000", "2000", "500"},
+    {"7", "\<\"\"\>", "\<\"\"\>", "\<\"\"\>"}
+   },
+   GridBoxAlignment->{
+    "Columns" -> {{Left}}, "ColumnsIndexed" -> {}, "Rows" -> {{Baseline}}, 
+     "RowsIndexed" -> {}},
+   GridBoxSpacings->{"Columns" -> {
+       Offset[0.27999999999999997`], {
+        Offset[2.0999999999999996`]}, 
+       Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+       Offset[0.2], {
+        Offset[0.4]}, 
+       Offset[0.2]}, "RowsIndexed" -> {}}],
+  TableForm[{{10, 5000, 5000}, {2000, 3000, 2500, 2000}, {4000, 2750, 5000, 
+    2000}, {0, 5000, 2500, 3000}, {2500, 5000, 4000, 2000}, {4000, 5000, 5000,
+     2750}, {2000, 2000, 3750, 0}, {3750, 2000, 5000, 1250}, {3750, 1250, 
+    5000, 0}, {0, 500, 2000, 0}, {0, 3000, 2000, 500}, {7}}]]], "Output",
+ CellChangeTimes->{
+  3.7403382340864353`*^9},ExpressionUUID->"eeecd856-04d1-45f7-be34-\
+f5edbaf37729"]
+}, Open  ]],
+
+Cell["\<\
+N\[UAcute]mero de poligonos : numR
+Definici\[OAcute]n del Rect\[AAcute]ngulo R en 2 D en valores R (x) y R (y) : \
+sizeR\
+\>", "Text",
+ CellChangeTimes->{{3.740338891054098*^9, 
+  3.74033890380425*^9}},ExpressionUUID->"06d872a5-6c6d-4cc9-9b07-\
+8b061ed697c4"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{"First", "[", "datos", "]"}], "\[IndentingNewLine]", 
+ RowBox[{"numR", "=", 
+  SubscriptBox[
+   RowBox[{"First", "[", "datos", "]"}], 
+   RowBox[{
+   "\[LeftDoubleBracket]", "1", 
+    "\[RightDoubleBracket]"}]]}], "\[IndentingNewLine]", 
+ RowBox[{"sizeR", "=", 
+  RowBox[{"Rest", "[", 
+   RowBox[{"First", "[", "datos", "]"}], "]"}]}]}], "Input",ExpressionUUID->\
+"bc246bc1-3731-4e56-a341-186250de7cf0"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{"10", ",", "5000", ",", "5000"}], "}"}]], "Output",
+ CellChangeTimes->{
+  3.740338921749234*^9},ExpressionUUID->"4e771ae3-a33f-4db6-acd2-\
+06648d6d8fe4"],
+
+Cell[BoxData["10"], "Output",
+ CellChangeTimes->{
+  3.740338921753234*^9},ExpressionUUID->"7706c822-410d-4292-9f21-\
+e1fe08b07f56"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{"5000", ",", "5000"}], "}"}]], "Output",
+ CellChangeTimes->{
+  3.740338921757233*^9},ExpressionUUID->"7f6c2b8a-616d-4624-b70c-\
+1ee675d448a2"]
+}, Open  ]],
+
+Cell["\<\
+Para cada poligono se tiene los valores de coordenadas (x, y) de las esquinas \
+top - left y bottom - rigth. Los rooms se proporcionan en un orden arbitrario.\
+\>", "Text",
+ CellChangeTimes->{{3.7403389314720397`*^9, 
+  3.740338944446864*^9}},ExpressionUUID->"29cddbda-83c6-49fc-876c-\
+5b6a90437e59"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"points", "=", 
+  RowBox[{"Map", "[", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"Prepend", "[", 
+      RowBox[{
+       SubscriptBox[
+        RowBox[{"Take", "[", 
+         RowBox[{"datos", ",", 
+          RowBox[{"{", 
+           RowBox[{"2", ",", 
+            RowBox[{"numR", "+", "1"}]}], "}"}]}], "]"}], 
+        RowBox[{"\[LeftDoubleBracket]", "#", "\[RightDoubleBracket]"}]], ",", 
+       "#"}], "]"}], "&"}], ",", 
+    RowBox[{"Range", "[", "numR", "]"}]}], "]"}]}]], "Input",ExpressionUUID->\
+"23312f8b-6a4b-43ba-affb-2ad38721ec90"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{"1", ",", "2000", ",", "3000", ",", "2500", ",", "2000"}], "}"}], 
+   ",", 
+   RowBox[{"{", 
+    RowBox[{"2", ",", "4000", ",", "2750", ",", "5000", ",", "2000"}], "}"}], 
+   ",", 
+   RowBox[{"{", 
+    RowBox[{"3", ",", "0", ",", "5000", ",", "2500", ",", "3000"}], "}"}], 
+   ",", 
+   RowBox[{"{", 
+    RowBox[{"4", ",", "2500", ",", "5000", ",", "4000", ",", "2000"}], "}"}], 
+   ",", 
+   RowBox[{"{", 
+    RowBox[{"5", ",", "4000", ",", "5000", ",", "5000", ",", "2750"}], "}"}], 
+   ",", 
+   RowBox[{"{", 
+    RowBox[{"6", ",", "2000", ",", "2000", ",", "3750", ",", "0"}], "}"}], 
+   ",", 
+   RowBox[{"{", 
+    RowBox[{"7", ",", "3750", ",", "2000", ",", "5000", ",", "1250"}], "}"}], 
+   ",", 
+   RowBox[{"{", 
+    RowBox[{"8", ",", "3750", ",", "1250", ",", "5000", ",", "0"}], "}"}], 
+   ",", 
+   RowBox[{"{", 
+    RowBox[{"9", ",", "0", ",", "500", ",", "2000", ",", "0"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"10", ",", "0", ",", "3000", ",", "2000", ",", "500"}], "}"}]}], 
+  "}"}]], "Output",
+ CellChangeTimes->{
+  3.740338956407322*^9},ExpressionUUID->"f80cd687-24ea-4af9-819b-\
+dcee6f295b08"]
+}, Open  ]],
+
+Cell["Ordenamiento de los poligonos", "Text",
+ CellChangeTimes->{{3.7403390072479563`*^9, 
+  3.740339014003867*^9}},ExpressionUUID->"eabc47a5-61d4-446b-b2b4-\
+7c8e48665df5"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"recS", "=", 
+  RowBox[{"Map", "[", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"Prepend", "[", 
+      RowBox[{
+       SubscriptBox[
+        RowBox[{"Sort", "[", 
+         RowBox[{"points", ",", 
+          RowBox[{
+           RowBox[{"(", 
+            RowBox[{
+             RowBox[{"(", 
+              RowBox[{
+               RowBox[{
+                SubscriptBox["#1", 
+                 RowBox[{
+                 "\[LeftDoubleBracket]", "3", "\[RightDoubleBracket]"}]], "==", 
+                SubscriptBox["#2", 
+                 RowBox[{
+                 "\[LeftDoubleBracket]", "3", "\[RightDoubleBracket]"}]]}], 
+               " ", "\[And]", 
+               RowBox[{
+                SubscriptBox["#1", 
+                 RowBox[{
+                 "\[LeftDoubleBracket]", "2", "\[RightDoubleBracket]"}]], "<", 
+                SubscriptBox["#2", 
+                 RowBox[{
+                 "\[LeftDoubleBracket]", "2", "\[RightDoubleBracket]"}]]}]}], 
+              ")"}], "\[Or]", " ", 
+             RowBox[{"(", 
+              RowBox[{
+               SubscriptBox["#1", 
+                RowBox[{
+                "\[LeftDoubleBracket]", "3", "\[RightDoubleBracket]"}]], ">", 
+               SubscriptBox["#2", 
+                RowBox[{
+                "\[LeftDoubleBracket]", "3", "\[RightDoubleBracket]"}]]}], 
+              ")"}]}], ")"}], "&"}]}], "]"}], 
+        RowBox[{"\[LeftDoubleBracket]", "#", "\[RightDoubleBracket]"}]], ",", 
+       "#"}], "]"}], "&"}], ",", 
+    RowBox[{"Range", "[", "numR", "]"}]}], "]"}]}]], "Input",ExpressionUUID->\
+"8fb21aad-ecf6-4b93-a899-4f4c7123eec5"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{"1", ",", "3", ",", "0", ",", "5000", ",", "2500", ",", "3000"}], 
+    "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+    "2", ",", "4", ",", "2500", ",", "5000", ",", "4000", ",", "2000"}], 
+    "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+    "3", ",", "5", ",", "4000", ",", "5000", ",", "5000", ",", "2750"}], 
+    "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"4", ",", "10", ",", "0", ",", "3000", ",", "2000", ",", "500"}], 
+    "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+    "5", ",", "1", ",", "2000", ",", "3000", ",", "2500", ",", "2000"}], 
+    "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+    "6", ",", "2", ",", "4000", ",", "2750", ",", "5000", ",", "2000"}], 
+    "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"7", ",", "6", ",", "2000", ",", "2000", ",", "3750", ",", "0"}], 
+    "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+    "8", ",", "7", ",", "3750", ",", "2000", ",", "5000", ",", "1250"}], 
+    "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"9", ",", "8", ",", "3750", ",", "1250", ",", "5000", ",", "0"}], 
+    "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"10", ",", "9", ",", "0", ",", "500", ",", "2000", ",", "0"}], 
+    "}"}]}], "}"}]], "Output",
+ CellChangeTimes->{
+  3.7403390009911475`*^9},ExpressionUUID->"e141af6e-0cfc-4785-9340-\
+fd470c86facd"]
+}, Open  ]]
+},
+WindowSize->{1160, 755},
+WindowMargins->{{56, Automatic}, {-33, Automatic}},
+FrontEndVersion->"11.1 for Microsoft Windows (64-bit) (April 18, 2017)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[558, 20, 424, 10, 125, "Text", "ExpressionUUID" -> \
+"6b571891-dd70-4ad9-81ef-2891a621286e"],
+Cell[CellGroupData[{
+Cell[1007, 34, 373, 9, 44, "Input", "ExpressionUUID" -> \
+"9ede8caa-773f-4fa4-b976-88cbf8fb44a6"],
+Cell[1383, 45, 1306, 31, 230, "Output", "ExpressionUUID" -> \
+"eeecd856-04d1-45f7-be34-f5edbaf37729"]
+}, Open  ]],
+Cell[2704, 79, 269, 7, 49, "Text", "ExpressionUUID" -> \
+"06d872a5-6c6d-4cc9-9b07-8b061ed697c4"],
+Cell[CellGroupData[{
+Cell[2998, 90, 427, 11, 74, "Input", "ExpressionUUID" -> \
+"bc246bc1-3731-4e56-a341-186250de7cf0"],
+Cell[3428, 103, 192, 5, 30, "Output", "ExpressionUUID" -> \
+"4e771ae3-a33f-4db6-acd2-06648d6d8fe4"],
+Cell[3623, 110, 131, 3, 30, "Output", "ExpressionUUID" -> \
+"7706c822-410d-4292-9f21-e1fe08b07f56"],
+Cell[3757, 115, 181, 5, 30, "Output", "ExpressionUUID" -> \
+"7f6c2b8a-616d-4624-b70c-1ee675d448a2"]
+}, Open  ]],
+Cell[3953, 123, 310, 6, 30, "Text", "ExpressionUUID" -> \
+"29cddbda-83c6-49fc-876c-5b6a90437e59"],
+Cell[CellGroupData[{
+Cell[4288, 133, 559, 16, 34, "Input", "ExpressionUUID" -> \
+"23312f8b-6a4b-43ba-affb-2ad38721ec90"],
+Cell[4850, 151, 1181, 34, 50, "Output", "ExpressionUUID" -> \
+"f80cd687-24ea-4af9-819b-dcee6f295b08"]
+}, Open  ]],
+Cell[6046, 188, 173, 3, 30, "Text", "ExpressionUUID" -> \
+"eabc47a5-61d4-446b-b2b4-7c8e48665df5"],
+Cell[CellGroupData[{
+Cell[6244, 195, 1612, 43, 34, "Input", "ExpressionUUID" -> \
+"8fb21aad-ecf6-4b93-a899-4f4c7123eec5"],
+Cell[7859, 240, 1324, 40, 107, "Output", "ExpressionUUID" -> \
+"e141af6e-0cfc-4785-9340-fd470c86facd"]
+}, Open  ]]
+}
+]
+*)
+
+(* End of internal cache information *)
+

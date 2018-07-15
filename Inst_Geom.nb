@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[     52980,       1201]
-NotebookOptionsPosition[     50854,       1156]
-NotebookOutlinePosition[     51242,       1173]
-CellTagsIndexPosition[     51199,       1170]
+NotebookDataLength[     48184,       1116]
+NotebookOptionsPosition[     45926,       1068]
+NotebookOutlinePosition[     46314,       1085]
+CellTagsIndexPosition[     46271,       1082]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -184,11 +184,14 @@ Cell[BoxData[
     2000}, {0, 5000, 2500, 3000}, {2500, 5000, 4000, 2000}, {4000, 5000, 5000,
      2750}, {2000, 2000, 3750, 0}, {3750, 2000, 5000, 1250}, {3750, 1250, 
     5000, 0}, {0, 500, 2000, 0}, {0, 3000, 2000, 500}, {7}}]]], "Output",
- CellChangeTimes->{3.740574288056213*^9, 3.740574517156612*^9, 
-  3.740574555244529*^9, 3.740577386750752*^9, 3.7405776159656754`*^9, 
-  3.740578167034256*^9, 3.740579166152754*^9, 
-  3.740579204609833*^9},ExpressionUUID->"4f572d36-41c8-47b1-aba7-\
-82c8cac7e858"]
+ CellChangeTimes->{
+  3.740574288056213*^9, 3.740574517156612*^9, 3.740574555244529*^9, 
+   3.740577386750752*^9, 3.7405776159656754`*^9, 3.740578167034256*^9, 
+   3.740579166152754*^9, 3.740579204609833*^9, 3.740589562648019*^9, 
+   3.740591396711507*^9, 3.740601652875346*^9, 3.7406016918690147`*^9, {
+   3.740601825542149*^9, 3.740601848711053*^9}, 
+   3.740603197812154*^9},ExpressionUUID->"13988bca-187d-4122-a44a-\
+e147ce38b648"]
 }, Open  ]],
 
 Cell[CellGroupData[{
@@ -329,474 +332,486 @@ Cell["Generacion de la lista de poligonos", "Subchapter",
   3.740574341877647*^9}},ExpressionUUID->"cba19f50-e847-45e7-84f0-\
 bc32ff15955c"],
 
-Cell[CellGroupData[{
-
 Cell[BoxData[
  RowBox[{"\[IndentingNewLine]", "\[IndentingNewLine]", 
   RowBox[{
    RowBox[{
-    RowBox[{"listaDeVertices", " ", "=", " ", 
-     RowBox[{"VertexList", "[", "g", "]"}]}], ";"}], "\[IndentingNewLine]", 
-   RowBox[{"(*", 
-    RowBox[{
-    "LISTA", " ", "DE", " ", "COORDENADAS", " ", "DE", " ", "LOS", " ", 
-     "VERTICES", " ", "DEL", " ", "GRAFO"}], "*)"}], "\[IndentingNewLine]", 
-   RowBox[{"coordenadas", "=", 
-    RowBox[{"GraphEmbedding", "[", "g", "]"}]}], "\[IndentingNewLine]", "g", 
-   "\[IndentingNewLine]", "\[IndentingNewLine]", 
-   RowBox[{"(*", 
-    RowBox[{"VARIABLES", " ", "AUXILIARES"}], "*)"}], "\[IndentingNewLine]", 
-   RowBox[{
-    RowBox[{"poligonos", "=", 
-     RowBox[{"{", "}"}]}], ";"}], "\[IndentingNewLine]", 
-   RowBox[{
-    RowBox[{"vertice1", " ", "=", "0"}], ";"}], "\[IndentingNewLine]", 
-   RowBox[{"(*", 
-    RowBox[{
-    "COORDENADAS", " ", "DEL", " ", "VERTICE", " ", "SUPERIOR", " ", 
-     "IZQUIERDO"}], "*)"}], "\[IndentingNewLine]", 
-   RowBox[{
-    RowBox[{"coorx1", "=", "0"}], ";"}], "\[IndentingNewLine]", 
-   RowBox[{
-    RowBox[{"coorx2", " ", "=", "0"}], ";"}], "\[IndentingNewLine]", 
-   RowBox[{
-    RowBox[{"vertice2", " ", "=", "0"}], ";"}], "\[IndentingNewLine]", 
-   RowBox[{"(*", 
-    RowBox[{
-    "COORDENADAS", " ", "DEL", " ", "VETICE", " ", "INFERIOR", " ", 
-     "DERECHO"}], "*)"}], "\[IndentingNewLine]", 
-   RowBox[{
-    RowBox[{"coory1", "=", "0"}], ";"}], "\[IndentingNewLine]", 
-   RowBox[{
-    RowBox[{"coory2", "=", "0"}], ";"}], "\[IndentingNewLine]", 
-   RowBox[{
-    RowBox[{"vertice3", " ", "=", "0"}], ";"}], "\[IndentingNewLine]", 
-   RowBox[{
-    RowBox[{"vertice4", "=", "0"}], ";"}], "\[IndentingNewLine]", 
-   RowBox[{"(*", 
-    RowBox[{
-    "VARIABLE", " ", "PARA", " ", "CONSTRUIR", " ", "EL", " ", "POLIGONO"}], 
-    "*)"}], "\[IndentingNewLine]", 
-   RowBox[{
-    RowBox[{"poligonInd", "=", 
-     RowBox[{"{", "}"}]}], ";"}], "\[IndentingNewLine]", 
-   RowBox[{"(*", 
-    RowBox[{"AUXILIAR", " ", "DE", " ", "VERTICE"}], "*)"}], 
-   "\[IndentingNewLine]", 
-   RowBox[{
-    RowBox[{"auxiliar", "=", "0"}], ";"}], "\[IndentingNewLine]", 
-   "\[IndentingNewLine]", 
-   RowBox[{"(*", 
-    RowBox[{
-    "SE", " ", "RECORREN", " ", "LAS", " ", "FILAS", " ", "DEL", " ", 
-     "ARCHIVO", " ", "IMPORTADO", " ", "SALTANDO", " ", "LA", " ", "FILA", 
-     " ", "1"}], "*)"}], "\[IndentingNewLine]", 
-   RowBox[{"For", "[", 
-    RowBox[{
-     RowBox[{"i", "=", "2"}], ",", " ", 
-     RowBox[{"i", "<", 
-      RowBox[{"Length", "[", "datos", "]"}]}], ",", " ", 
-     RowBox[{"i", "++"}], ",", "\[IndentingNewLine]", 
-     RowBox[{"(*", 
-      RowBox[{
-      "LA", " ", "VARIABLE", " ", "DEL", " ", "POLIGONO", " ", "SE", " ", 
-       "LIMPIA"}], "*)"}], "\[IndentingNewLine]", 
+    RowBox[{"obtenerListaPoligonos", "[", 
+     RowBox[{"grafo_", ",", "dat_"}], "]"}], ":=", 
+    RowBox[{"Module", "[", 
      RowBox[{
-      RowBox[{"poligonInd", "=", 
-       RowBox[{"{", "}"}]}], ";", "\[IndentingNewLine]", 
-      RowBox[{"(*", 
+      RowBox[{"{", " ", 
        RowBox[{
+       "g", ",", "listaDeVertices", ",", "coordenadas", ",", "poligonInd", 
+        ",", "vertice1", ",", "vertice2", ",", "vertice3", ",", "vertice4", 
+        ",", "coorx1", ",", "coorx2", ",", "coory1", ",", "coory2", ",", 
+        "\[IndentingNewLine]", "auxiliar", ",", "  ", "datos", " ", ",", " ", 
+        "poligonos"}], "}"}], ",", "\[IndentingNewLine]", 
+      RowBox[{
+       RowBox[{"g", "=", "grafo"}], ";", "\[IndentingNewLine]", 
+       RowBox[{"datos", "=", "dat"}], ";", "\[IndentingNewLine]", 
+       RowBox[{"listaDeVertices", " ", "=", " ", 
+        RowBox[{"VertexList", "[", "g", "]"}]}], ";", "\[IndentingNewLine]", 
+       RowBox[{"(*", 
         RowBox[{
-        "SE", " ", "DIVIDE", " ", "EL", " ", "PROCESO", " ", "EN", " ", 
-         "DOS"}], ",", " ", 
+        "LISTA", " ", "DE", " ", "COORDENADAS", " ", "DE", " ", "LOS", " ", 
+         "VERTICES", " ", "DEL", " ", "GRAFO"}], "*)"}], 
+       "\[IndentingNewLine]", 
+       RowBox[{"coordenadas", "=", 
+        RowBox[{"GraphEmbedding", "[", "g", "]"}]}], ";", 
+       "\[IndentingNewLine]", 
+       RowBox[{"(*", 
+        RowBox[{"VARIABLES", " ", "AUXILIARES"}], "*)"}], 
+       "\[IndentingNewLine]", 
+       RowBox[{"poligonos", "=", 
+        RowBox[{"{", "}"}]}], ";", "\[IndentingNewLine]", 
+       RowBox[{"vertice1", " ", "=", "0"}], ";", "\[IndentingNewLine]", 
+       RowBox[{"(*", 
         RowBox[{
-        "PARA", " ", "CADA", " ", "VERTICE", " ", "EN", " ", "LA", " ", 
-         "FILA", 
-         RowBox[{"(", 
+        "COORDENADAS", " ", "DEL", " ", "VERTICE", " ", "SUPERIOR", " ", 
+         "IZQUIERDO"}], "*)"}], "\[IndentingNewLine]", 
+       RowBox[{"coorx1", "=", "0"}], ";", "\[IndentingNewLine]", 
+       RowBox[{"coorx2", " ", "=", "0"}], ";", "\[IndentingNewLine]", 
+       RowBox[{"vertice2", " ", "=", "0"}], ";", "\[IndentingNewLine]", 
+       RowBox[{"(*", 
+        RowBox[{
+        "COORDENADAS", " ", "DEL", " ", "VETICE", " ", "INFERIOR", " ", 
+         "DERECHO"}], "*)"}], "\[IndentingNewLine]", 
+       RowBox[{"coory1", "=", "0"}], ";", "\[IndentingNewLine]", 
+       RowBox[{"coory2", "=", "0"}], ";", "\[IndentingNewLine]", 
+       RowBox[{"vertice3", " ", "=", "0"}], ";", "\[IndentingNewLine]", 
+       RowBox[{"vertice4", "=", "0"}], ";", "\[IndentingNewLine]", 
+       RowBox[{"(*", 
+        RowBox[{
+        "VARIABLE", " ", "PARA", " ", "CONSTRUIR", " ", "EL", " ", 
+         "POLIGONO"}], "*)"}], "\[IndentingNewLine]", 
+       RowBox[{"poligonInd", "=", 
+        RowBox[{"{", "}"}]}], ";", "\[IndentingNewLine]", 
+       RowBox[{"(*", 
+        RowBox[{"AUXILIAR", " ", "DE", " ", "VERTICE"}], "*)"}], 
+       "\[IndentingNewLine]", 
+       RowBox[{"auxiliar", "=", "0"}], ";", "\[IndentingNewLine]", 
+       "\[IndentingNewLine]", 
+       RowBox[{"(*", 
+        RowBox[{
+        "SE", " ", "RECORREN", " ", "LAS", " ", "FILAS", " ", "DEL", " ", 
+         "ARCHIVO", " ", "IMPORTADO", " ", "SALTANDO", " ", "LA", " ", "FILA",
+          " ", "1"}], "*)"}], "\[IndentingNewLine]", 
+       RowBox[{"For", "[", 
+        RowBox[{
+         RowBox[{"i", "=", "2"}], ",", " ", 
+         RowBox[{"i", "<", 
+          RowBox[{"Length", "[", "datos", "]"}]}], ",", " ", 
+         RowBox[{"i", "++"}], ",", "\[IndentingNewLine]", 
+         RowBox[{"(*", 
           RowBox[{
-          "CADA", " ", "FILA", " ", "TIENE", " ", "2", " ", "VERTICES"}], 
-          ")"}]}]}], "*)"}], "\[IndentingNewLine]", 
-      RowBox[{"For", "[", 
-       RowBox[{
-        RowBox[{"j", "=", "1"}], ",", " ", 
-        RowBox[{"j", "\[LessEqual]", " ", "2"}], ",", " ", 
-        RowBox[{"j", "++"}], ",", "\[IndentingNewLine]", 
-        RowBox[{"(*", 
+          "LA", " ", "VARIABLE", " ", "DEL", " ", "POLIGONO", " ", "SE", " ", 
+           "LIMPIA"}], "*)"}], "\[IndentingNewLine]", 
          RowBox[{
-          RowBox[{"SI", " ", "ES", " ", "EL", " ", "PRIMER", " ", "CICLO"}], 
-          ",", " ", 
-          RowBox[{
-          "SE", " ", "PROCESA", " ", "EL", " ", "PRIMER", " ", "VERTICE"}]}], 
-         "*)"}], "\[IndentingNewLine]", 
-        RowBox[{
-         RowBox[{"If", "[", 
-          RowBox[{
-           RowBox[{"j", "\[Equal]", "  ", "1"}], ",", "\[IndentingNewLine]", 
-           RowBox[{"(*", 
-            RowBox[{
-            "SE", " ", "OBTIENE", " ", "EL", " ", "VERTICE", " ", "DEL", " ", 
-             "GRAFO", " ", "QUE", " ", "CORRESPONDA", " ", "CON", " ", "LAS", 
-             " ", "COORDENADAS", " ", "DADAS", " ", "EN", " ", "EL", " ", 
-             "ARCHIVO", " ", "IMPORTADO"}], "*)"}], "\[IndentingNewLine]", 
+          RowBox[{"poligonInd", "=", 
+           RowBox[{"{", "}"}]}], ";", "\[IndentingNewLine]", 
+          RowBox[{"(*", 
            RowBox[{
-            RowBox[{"vertice1", " ", "=", 
+            RowBox[{
+            "SE", " ", "DIVIDE", " ", "EL", " ", "PROCESO", " ", "EN", " ", 
+             "DOS"}], ",", " ", 
+            RowBox[{
+            "PARA", " ", "CADA", " ", "VERTICE", " ", "EN", " ", "LA", " ", 
+             "FILA", 
+             RowBox[{"(", 
+              RowBox[{
+              "CADA", " ", "FILA", " ", "TIENE", " ", "2", " ", "VERTICES"}], 
+              ")"}]}]}], "*)"}], "\[IndentingNewLine]", 
+          RowBox[{"For", "[", 
+           RowBox[{
+            RowBox[{"j", "=", "1"}], ",", " ", 
+            RowBox[{"j", "\[LessEqual]", " ", "2"}], ",", " ", 
+            RowBox[{"j", "++"}], ",", "\[IndentingNewLine]", 
+            RowBox[{"(*", 
              RowBox[{
               RowBox[{
-               RowBox[{"Position", "[", 
-                RowBox[{"coordenadas", ",", 
-                 RowBox[{"{", 
+              "SI", " ", "ES", " ", "EL", " ", "PRIMER", " ", "CICLO"}], ",", 
+              " ", 
+              RowBox[{
+              "SE", " ", "PROCESA", " ", "EL", " ", "PRIMER", " ", 
+               "VERTICE"}]}], "*)"}], "\[IndentingNewLine]", 
+            RowBox[{
+             RowBox[{"If", "[", 
+              RowBox[{
+               RowBox[{"j", "\[Equal]", "  ", "1"}], ",", 
+               "\[IndentingNewLine]", 
+               RowBox[{"(*", 
+                RowBox[{
+                "SE", " ", "OBTIENE", " ", "EL", " ", "VERTICE", " ", "DEL", 
+                 " ", "GRAFO", " ", "QUE", " ", "CORRESPONDA", " ", "CON", 
+                 " ", "LAS", " ", "COORDENADAS", " ", "DADAS", " ", "EN", " ",
+                  "EL", " ", "ARCHIVO", " ", "IMPORTADO"}], "*)"}], 
+               "\[IndentingNewLine]", 
+               RowBox[{
+                RowBox[{"vertice1", " ", "=", 
+                 RowBox[{
                   RowBox[{
-                   RowBox[{
+                   RowBox[{"Position", "[", 
+                    RowBox[{"coordenadas", ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{
                     RowBox[{"datos", "[", 
                     RowBox[{"[", "i", "]"}], "]"}], "[", 
                     RowBox[{"[", "1", "]"}], "]"}], ",", 
-                   RowBox[{
+                    RowBox[{
                     RowBox[{"datos", "[", 
                     RowBox[{"[", "i", "]"}], "]"}], "[", 
                     RowBox[{"[", "2", "]"}], "]"}]}], "}"}]}], "]"}], "[", 
-               RowBox[{"[", "1", "]"}], "]"}], "[", 
-              RowBox[{"[", "1", "]"}], "]"}]}], ";", "\[IndentingNewLine]", 
-            RowBox[{"(*", 
-             RowBox[{
-             "SE", " ", "GUARDAN", " ", "LAS", " ", "COORDENADAS", " ", "DEL",
-               " ", "VERTICE"}], "*)"}], "\[IndentingNewLine]", 
-            RowBox[{"coorx1", " ", "=", 
-             RowBox[{
-              RowBox[{"datos", "[", 
-               RowBox[{"[", "i", "]"}], "]"}], "[", 
-              RowBox[{"[", "1", "]"}], "]"}]}], ";", "\[IndentingNewLine]", 
-            RowBox[{"coory1", "=", " ", 
-             RowBox[{
-              RowBox[{"datos", "[", 
-               RowBox[{"[", "i", "]"}], "]"}], "[", 
-              RowBox[{"[", "2", "]"}], "]"}]}], ";"}], "\[IndentingNewLine]", 
-           ",", "\[IndentingNewLine]", 
-           RowBox[{"(*", 
-            RowBox[{
-             RowBox[{
-             "SI", " ", "ES", " ", "EL", " ", "SEGUNDO", " ", "CICLO"}], ",", 
-             " ", 
-             RowBox[{
-             "SE", " ", "PROCESA", " ", "EL", " ", "SEGUNDO", " ", "VERTIDE", 
-              " ", "DE", " ", "LA", " ", "FILA", " ", "DEL", " ", "ARCHIVO", 
-              " ", "IMPORTADO"}]}], "*)"}], "\[IndentingNewLine]", 
-           RowBox[{"(*", 
-            RowBox[{"SE", " ", "GUARDA", " ", "EL", " ", "VERTICE"}], "*)"}], 
-           "\[IndentingNewLine]", 
-           RowBox[{
-            RowBox[{"vertice2", "=", 
-             RowBox[{
-              RowBox[{
-               RowBox[{"Position", "[", 
-                RowBox[{"coordenadas", ",", 
-                 RowBox[{"{", 
+                   RowBox[{"[", "1", "]"}], "]"}], "[", 
+                  RowBox[{"[", "1", "]"}], "]"}]}], ";", 
+                "\[IndentingNewLine]", 
+                RowBox[{"(*", 
+                 RowBox[{
+                 "SE", " ", "GUARDAN", " ", "LAS", " ", "COORDENADAS", " ", 
+                  "DEL", " ", "VERTICE"}], "*)"}], "\[IndentingNewLine]", 
+                RowBox[{"coorx1", " ", "=", 
+                 RowBox[{
+                  RowBox[{"datos", "[", 
+                   RowBox[{"[", "i", "]"}], "]"}], "[", 
+                  RowBox[{"[", "1", "]"}], "]"}]}], ";", 
+                "\[IndentingNewLine]", 
+                RowBox[{"coory1", "=", " ", 
+                 RowBox[{
+                  RowBox[{"datos", "[", 
+                   RowBox[{"[", "i", "]"}], "]"}], "[", 
+                  RowBox[{"[", "2", "]"}], "]"}]}], ";"}], 
+               "\[IndentingNewLine]", ",", "\[IndentingNewLine]", 
+               RowBox[{"(*", 
+                RowBox[{
+                 RowBox[{
+                 "SI", " ", "ES", " ", "EL", " ", "SEGUNDO", " ", "CICLO"}], 
+                 ",", " ", 
+                 RowBox[{
+                 "SE", " ", "PROCESA", " ", "EL", " ", "SEGUNDO", " ", 
+                  "VERTIDE", " ", "DE", " ", "LA", " ", "FILA", " ", "DEL", 
+                  " ", "ARCHIVO", " ", "IMPORTADO"}]}], "*)"}], 
+               "\[IndentingNewLine]", 
+               RowBox[{"(*", 
+                RowBox[{"SE", " ", "GUARDA", " ", "EL", " ", "VERTICE"}], 
+                "*)"}], "\[IndentingNewLine]", 
+               RowBox[{
+                RowBox[{"vertice2", "=", 
+                 RowBox[{
                   RowBox[{
-                   RowBox[{
+                   RowBox[{"Position", "[", 
+                    RowBox[{"coordenadas", ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{
                     RowBox[{"datos", "[", 
                     RowBox[{"[", "i", "]"}], "]"}], "[", 
                     RowBox[{"[", "3", "]"}], "]"}], ",", 
-                   RowBox[{
+                    RowBox[{
                     RowBox[{"datos", "[", 
                     RowBox[{"[", "i", "]"}], "]"}], "[", 
                     RowBox[{"[", "4", "]"}], "]"}]}], "}"}]}], "]"}], "[", 
-               RowBox[{"[", "1", "]"}], "]"}], "[", 
-              RowBox[{"[", "1", "]"}], "]"}]}], ";", "\[IndentingNewLine]", 
-            RowBox[{"(*", 
-             RowBox[{
-             "SE", " ", "GUARDAN", " ", "LAS", " ", "COORDENADAS", " ", "DEL",
-               " ", "SEGUNDO", " ", "EVRTICE"}], "*)"}], 
-            "\[IndentingNewLine]", 
-            RowBox[{"coorx2", " ", "=", " ", 
-             RowBox[{
-              RowBox[{"datos", "[", 
-               RowBox[{"[", "i", "]"}], "]"}], "[", 
-              RowBox[{"[", "3", "]"}], "]"}]}], ";", "\[IndentingNewLine]", 
-            RowBox[{"coory2", "=", " ", 
-             RowBox[{
-              RowBox[{"datos", "[", 
-               RowBox[{"[", "i", "]"}], "]"}], "[", 
-              RowBox[{"[", "4", "]"}], "]"}]}], ";"}]}], 
-          "\[IndentingNewLine]", "]"}], ";"}]}], "\[IndentingNewLine]", 
-       "\[IndentingNewLine]", "]"}], ";", "\[IndentingNewLine]", 
-      RowBox[{"(*", 
-       RowBox[{
-        RowBox[{
-        "UNA", " ", "VEZ", " ", "SE", " ", "TIENEN", " ", "LOS", " ", 
-         "VERTICES", " ", "Y", " ", "SUS", " ", "RESPECTIVAS", " ", 
-         "COORDENADAS"}], "..."}], "*)"}], "\[IndentingNewLine]", 
-      RowBox[{"(*", 
-       RowBox[{
-       "SE", " ", "CALCULAN", " ", "LOS", " ", "OTROS", " ", "VERTICES", " ", 
-        "DEL", " ", "RECTANGULO", " ", "CON", " ", "LA", " ", "MEZCLA", " ", 
-        "DE", " ", "LAS", " ", "COORDENADAS", " ", "DE", " ", "LOS", " ", 
-        "VERTICES", " ", "ANTERIORES"}], "*)"}], "\[IndentingNewLine]", 
-      RowBox[{"vertice3", " ", "=", " ", 
-       RowBox[{
-        RowBox[{
-         RowBox[{"Position", "[", 
-          RowBox[{"coordenadas", ",", 
-           RowBox[{"{", 
-            RowBox[{"coorx1", ",", "coory2"}], "}"}]}], "]"}], "[", 
-         RowBox[{"[", "1", "]"}], "]"}], "[", 
-        RowBox[{"[", "1", "]"}], "]"}]}], ";", "\[IndentingNewLine]", 
-      RowBox[{"vertice4", " ", "=", " ", 
-       RowBox[{
-        RowBox[{
-         RowBox[{"Position", "[", 
-          RowBox[{"coordenadas", ",", 
-           RowBox[{"{", 
-            RowBox[{"coorx2", ",", "coory1"}], "}"}]}], "]"}], "[", 
-         RowBox[{"[", "1", "]"}], "]"}], "[", 
-        RowBox[{"[", "1", "]"}], "]"}]}], ";", "\[IndentingNewLine]", 
-      "\[IndentingNewLine]", "\[IndentingNewLine]", 
-      RowBox[{"(*", 
-       RowBox[{
-       "SE", " ", "PROCESA", " ", "EL", " ", "RECTANGULO", " ", "PARA", " ", 
-        "ENCONTRAR", " ", "VERTICES", " ", "INTERMEDIOS", " ", "QUE", " ", 
-        "FORMAN", " ", "PARTE", " ", "DEL", " ", "POLIGONO"}], "*)"}], 
-      "\[IndentingNewLine]", 
-      RowBox[{"(*", 
-       RowBox[{
-        RowBox[{
-        "EL", " ", "PROCESO", " ", "SE", " ", "REALIZA", " ", "EN", " ", 
-         "SENTIDO", " ", "CONTRARIO", " ", "A", " ", "LAS", " ", "MANECILLAS",
-          " ", "DEL", " ", "RELOJ"}], ",", " ", 
-        RowBox[{
-        "INICIANDO", " ", "CON", " ", "EL", " ", "VERTICE", " ", "1"}], ",", 
-        " ", 
-        RowBox[{"SEGUIDO", " ", "DEL", " ", "3"}], ",", " ", 
-        RowBox[{"DEL", " ", "4", " ", "Y", " ", "DEL", " ", "2"}]}], "*)"}], 
-      "\[IndentingNewLine]", 
-      RowBox[{"(*", 
-       RowBox[{
-       "OBTENER", " ", "LAS", " ", "CONEXIONES", " ", "INTERMEDIAS", " ", 
-        "DE", " ", "LA", " ", "HORIZONTAL", " ", "IZQUIERDA"}], "*)"}], 
-      "\[IndentingNewLine]", 
-      RowBox[{"auxiliar", " ", "=", " ", "vertice1"}], ";", 
-      "\[IndentingNewLine]", 
-      RowBox[{"(*", 
-       RowBox[{
-       "SE", " ", "RECORREN", " ", "LAS", " ", "COORDENADAS", " ", "DE", " ", 
-        "LOS", " ", "VERTICES", " ", "DEL", " ", "GRAFO"}], "*)"}], 
-      "\[IndentingNewLine]", 
-      RowBox[{"For", "[", 
-       RowBox[{
-        RowBox[{"k", " ", "=", "1"}], ",", " ", 
-        RowBox[{"k", "\[LessEqual]", 
-         RowBox[{"Length", "[", "coordenadas", "]"}]}], ",", 
-        RowBox[{"k", "++"}], ",", "\[IndentingNewLine]", 
-        RowBox[{"(*", 
-         RowBox[{
-          RowBox[{
-          "SI", " ", "HORIZONTALMENTE", " ", "SE", " ", "ENCUENTRA", " ", 
-           "EN", " ", "LA", " ", "POSICION", " ", "DEL", " ", "PRIMER", " ", 
-           "VERTICE"}], ",", " ", 
-          RowBox[{
-          "SE", " ", "VERIFICA", " ", "QUE", " ", "ESTE", " ", "ENTRE", " ", 
-           "EL", " ", "VERTICE", " ", "1", " ", "Y", " ", "3"}]}], "*)"}], 
-        "\[IndentingNewLine]", 
-        RowBox[{"If", "[", 
-         RowBox[{
-          RowBox[{
+                   RowBox[{"[", "1", "]"}], "]"}], "[", 
+                  RowBox[{"[", "1", "]"}], "]"}]}], ";", 
+                "\[IndentingNewLine]", 
+                RowBox[{"(*", 
+                 RowBox[{
+                 "SE", " ", "GUARDAN", " ", "LAS", " ", "COORDENADAS", " ", 
+                  "DEL", " ", "SEGUNDO", " ", "EVRTICE"}], "*)"}], 
+                "\[IndentingNewLine]", 
+                RowBox[{"coorx2", " ", "=", " ", 
+                 RowBox[{
+                  RowBox[{"datos", "[", 
+                   RowBox[{"[", "i", "]"}], "]"}], "[", 
+                  RowBox[{"[", "3", "]"}], "]"}]}], ";", 
+                "\[IndentingNewLine]", 
+                RowBox[{"coory2", "=", " ", 
+                 RowBox[{
+                  RowBox[{"datos", "[", 
+                   RowBox[{"[", "i", "]"}], "]"}], "[", 
+                  RowBox[{"[", "4", "]"}], "]"}]}], ";"}]}], 
+              "\[IndentingNewLine]", "]"}], ";"}]}], "\[IndentingNewLine]", 
+           "\[IndentingNewLine]", "]"}], ";", "\[IndentingNewLine]", 
+          RowBox[{"(*", 
            RowBox[{
             RowBox[{
-             RowBox[{"coordenadas", "[", 
-              RowBox[{"[", "k", "]"}], "]"}], "[", 
-             RowBox[{"[", "1", "]"}], "]"}], "==", "  ", "coorx1"}], " ", "&&",
-            "  ", 
+            "UNA", " ", "VEZ", " ", "SE", " ", "TIENEN", " ", "LOS", " ", 
+             "VERTICES", " ", "Y", " ", "SUS", " ", "RESPECTIVAS", " ", 
+             "COORDENADAS"}], "..."}], "*)"}], "\[IndentingNewLine]", 
+          RowBox[{"(*", 
+           RowBox[{
+           "SE", " ", "CALCULAN", " ", "LOS", " ", "OTROS", " ", "VERTICES", 
+            " ", "DEL", " ", "RECTANGULO", " ", "CON", " ", "LA", " ", 
+            "MEZCLA", " ", "DE", " ", "LAS", " ", "COORDENADAS", " ", "DE", 
+            " ", "LOS", " ", "VERTICES", " ", "ANTERIORES"}], "*)"}], 
+          "\[IndentingNewLine]", 
+          RowBox[{"vertice3", " ", "=", " ", 
            RowBox[{
             RowBox[{
-             RowBox[{"coordenadas", "[", 
-              RowBox[{"[", "k", "]"}], "]"}], "[", 
-             RowBox[{"[", "2", "]"}], "]"}], "<", " ", "coory1"}], " ", "&&", 
-           " ", 
+             RowBox[{"Position", "[", 
+              RowBox[{"coordenadas", ",", 
+               RowBox[{"{", 
+                RowBox[{"coorx1", ",", "coory2"}], "}"}]}], "]"}], "[", 
+             RowBox[{"[", "1", "]"}], "]"}], "[", 
+            RowBox[{"[", "1", "]"}], "]"}]}], ";", "\[IndentingNewLine]", 
+          RowBox[{"vertice4", " ", "=", " ", 
            RowBox[{
             RowBox[{
-             RowBox[{"coordenadas", "[", 
-              RowBox[{"[", "k", "]"}], "]"}], "[", 
-             RowBox[{"[", "2", "]"}], "]"}], ">", "coory2"}]}], ",", 
+             RowBox[{"Position", "[", 
+              RowBox[{"coordenadas", ",", 
+               RowBox[{"{", 
+                RowBox[{"coorx2", ",", "coory1"}], "}"}]}], "]"}], "[", 
+             RowBox[{"[", "1", "]"}], "]"}], "[", 
+            RowBox[{"[", "1", "]"}], "]"}]}], ";", "\[IndentingNewLine]", 
+          "\[IndentingNewLine]", "\[IndentingNewLine]", 
+          RowBox[{"(*", 
+           RowBox[{
+           "SE", " ", "PROCESA", " ", "EL", " ", "RECTANGULO", " ", "PARA", 
+            " ", "ENCONTRAR", " ", "VERTICES", " ", "INTERMEDIOS", " ", "QUE",
+             " ", "FORMAN", " ", "PARTE", " ", "DEL", " ", "POLIGONO"}], 
+           "*)"}], "\[IndentingNewLine]", 
+          RowBox[{"(*", 
+           RowBox[{
+            RowBox[{
+            "EL", " ", "PROCESO", " ", "SE", " ", "REALIZA", " ", "EN", " ", 
+             "SENTIDO", " ", "CONTRARIO", " ", "A", " ", "LAS", " ", 
+             "MANECILLAS", " ", "DEL", " ", "RELOJ"}], ",", " ", 
+            RowBox[{
+            "INICIANDO", " ", "CON", " ", "EL", " ", "VERTICE", " ", "1"}], 
+            ",", " ", 
+            RowBox[{"SEGUIDO", " ", "DEL", " ", "3"}], ",", " ", 
+            RowBox[{"DEL", " ", "4", " ", "Y", " ", "DEL", " ", "2"}]}], 
+           "*)"}], "\[IndentingNewLine]", 
+          RowBox[{"(*", 
+           RowBox[{
+           "OBTENER", " ", "LAS", " ", "CONEXIONES", " ", "INTERMEDIAS", " ", 
+            "DE", " ", "LA", " ", "HORIZONTAL", " ", "IZQUIERDA"}], "*)"}], 
+          "\[IndentingNewLine]", 
+          RowBox[{"auxiliar", " ", "=", " ", "vertice1"}], ";", 
           "\[IndentingNewLine]", 
           RowBox[{"(*", 
            RowBox[{
-           "SE", " ", "CONECTA", " ", "ESTE", " ", "VERTICE", " ", "CON", " ",
-             "EL", " ", "ANTERIOR", " ", "Y", " ", "SE", " ", "AGREGA", " ", 
-            "A", " ", "LA", " ", "VARIABLE", " ", "POLIGONO"}], "*)"}], 
+           "SE", " ", "RECORREN", " ", "LAS", " ", "COORDENADAS", " ", "DE", 
+            " ", "LOS", " ", "VERTICES", " ", "DEL", " ", "GRAFO"}], "*)"}], 
           "\[IndentingNewLine]", 
-          RowBox[{
-           RowBox[{"AppendTo", "[", 
-            RowBox[{"poligonInd", ",", 
-             RowBox[{"auxiliar", "\[UndirectedEdge]", "k"}]}], " ", "]"}], 
-           ";", "\[IndentingNewLine]", 
-           RowBox[{"(*", 
-            RowBox[{
-            "EL", " ", "AUXILIAR", " ", "SE", " ", "CONVIERTE", " ", "EN", 
-             " ", "EL", " ", "ULTIMO", " ", "VERTICE"}], "*)"}], 
-           "\[IndentingNewLine]", 
-           RowBox[{"auxiliar", " ", "=", " ", "k"}], ";"}]}], 
-         "\[IndentingNewLine]", "]"}]}], "\[IndentingNewLine]", "]"}], ";", 
-      "\[IndentingNewLine]", 
-      RowBox[{"(*", 
-       RowBox[{
-       "SE", " ", "CONECTA", " ", "EL", " ", "ULTIMO", " ", "VERTICE", " ", 
-        "CON", " ", "EL", " ", "VERTICE", " ", "3"}], "*)"}], 
-      "\[IndentingNewLine]", 
-      RowBox[{"AppendTo", "[", 
-       RowBox[{"poligonInd", ",", 
-        RowBox[{"auxiliar", "\[UndirectedEdge]", "vertice3"}]}], "]"}], ";", 
-      "\[IndentingNewLine]", "\[IndentingNewLine]", "\[IndentingNewLine]", 
-      "\[IndentingNewLine]", 
-      RowBox[{"(*", 
-       RowBox[{
-       "EL", " ", "PROCESO", " ", "ANTERIOR", " ", "SE", " ", "REPITE", " ", 
-        "EN", " ", "LOS", " ", "LADOS", " ", "RESTANTES"}], "*)"}], 
-      "\[IndentingNewLine]", 
-      RowBox[{"(*", 
-       RowBox[{
-       "OBTENER", " ", "LAS", " ", "CONEXIONES", " ", "INTERMEDIAS", " ", 
-        "DE", " ", "LA", " ", "VERTICAL", " ", "INFERIOR"}], "*)"}], 
-      "\[IndentingNewLine]", 
-      RowBox[{"auxiliar", " ", "=", " ", "vertice3"}], ";", 
-      "\[IndentingNewLine]", 
-      RowBox[{"For", "[", 
-       RowBox[{
-        RowBox[{"k", " ", "=", "1"}], ",", " ", 
-        RowBox[{"k", "\[LessEqual]", 
-         RowBox[{"Length", "[", "coordenadas", "]"}]}], ",", 
-        RowBox[{"k", "++"}], ",", "\[IndentingNewLine]", 
-        RowBox[{"If", "[", 
-         RowBox[{
-          RowBox[{
+          RowBox[{"For", "[", 
            RowBox[{
-            RowBox[{
-             RowBox[{"coordenadas", "[", 
-              RowBox[{"[", "k", "]"}], "]"}], "[", 
-             RowBox[{"[", "2", "]"}], "]"}], "==", "  ", "coory2"}], " ", "&&",
-            "  ", 
+            RowBox[{"k", " ", "=", "1"}], ",", " ", 
+            RowBox[{"k", "\[LessEqual]", 
+             RowBox[{"Length", "[", "coordenadas", "]"}]}], ",", 
+            RowBox[{"k", "++"}], ",", "\[IndentingNewLine]", 
+            RowBox[{"(*", 
+             RowBox[{
+              RowBox[{
+              "SI", " ", "HORIZONTALMENTE", " ", "SE", " ", "ENCUENTRA", " ", 
+               "EN", " ", "LA", " ", "POSICION", " ", "DEL", " ", "PRIMER", 
+               " ", "VERTICE"}], ",", " ", 
+              RowBox[{
+              "SE", " ", "VERIFICA", " ", "QUE", " ", "ESTE", " ", "ENTRE", 
+               " ", "EL", " ", "VERTICE", " ", "1", " ", "Y", " ", "3"}]}], 
+             "*)"}], "\[IndentingNewLine]", 
+            RowBox[{"If", "[", 
+             RowBox[{
+              RowBox[{
+               RowBox[{
+                RowBox[{
+                 RowBox[{"coordenadas", "[", 
+                  RowBox[{"[", "k", "]"}], "]"}], "[", 
+                 RowBox[{"[", "1", "]"}], "]"}], "==", "  ", "coorx1"}], " ", 
+               "&&", "  ", 
+               RowBox[{
+                RowBox[{
+                 RowBox[{"coordenadas", "[", 
+                  RowBox[{"[", "k", "]"}], "]"}], "[", 
+                 RowBox[{"[", "2", "]"}], "]"}], "<", " ", "coory1"}], " ", "&&",
+                " ", 
+               RowBox[{
+                RowBox[{
+                 RowBox[{"coordenadas", "[", 
+                  RowBox[{"[", "k", "]"}], "]"}], "[", 
+                 RowBox[{"[", "2", "]"}], "]"}], ">", "coory2"}]}], ",", 
+              "\[IndentingNewLine]", 
+              RowBox[{"(*", 
+               RowBox[{
+               "SE", " ", "CONECTA", " ", "ESTE", " ", "VERTICE", " ", "CON", 
+                " ", "EL", " ", "ANTERIOR", " ", "Y", " ", "SE", " ", 
+                "AGREGA", " ", "A", " ", "LA", " ", "VARIABLE", " ", 
+                "POLIGONO"}], "*)"}], "\[IndentingNewLine]", 
+              RowBox[{
+               RowBox[{"AppendTo", "[", 
+                RowBox[{"poligonInd", ",", 
+                 RowBox[{"auxiliar", "\[UndirectedEdge]", "k"}]}], " ", "]"}],
+                ";", "\[IndentingNewLine]", 
+               RowBox[{"(*", 
+                RowBox[{
+                "EL", " ", "AUXILIAR", " ", "SE", " ", "CONVIERTE", " ", "EN",
+                  " ", "EL", " ", "ULTIMO", " ", "VERTICE"}], "*)"}], 
+               "\[IndentingNewLine]", 
+               RowBox[{"auxiliar", " ", "=", " ", "k"}], ";"}]}], 
+             "\[IndentingNewLine]", "]"}]}], "\[IndentingNewLine]", "]"}], 
+          ";", "\[IndentingNewLine]", 
+          RowBox[{"(*", 
            RowBox[{
-            RowBox[{
-             RowBox[{"coordenadas", "[", 
-              RowBox[{"[", "k", "]"}], "]"}], "[", 
-             RowBox[{"[", "1", "]"}], "]"}], ">", " ", "coorx1"}], " ", "&&", 
-           " ", 
-           RowBox[{
-            RowBox[{
-             RowBox[{"coordenadas", "[", 
-              RowBox[{"[", "k", "]"}], "]"}], "[", 
-             RowBox[{"[", "1", "]"}], "]"}], "<", "coorx2"}]}], ",", 
+           "SE", " ", "CONECTA", " ", "EL", " ", "ULTIMO", " ", "VERTICE", 
+            " ", "CON", " ", "EL", " ", "VERTICE", " ", "3"}], "*)"}], 
           "\[IndentingNewLine]", 
-          RowBox[{
-           RowBox[{"AppendTo", "[", 
-            RowBox[{"poligonInd", ",", 
-             RowBox[{"auxiliar", "\[UndirectedEdge]", "k"}]}], " ", "]"}], 
-           ";", "\[IndentingNewLine]", 
-           RowBox[{"auxiliar", " ", "=", " ", "k"}], ";"}]}], 
-         "\[IndentingNewLine]", "]"}]}], "\[IndentingNewLine]", "]"}], ";", 
-      "\[IndentingNewLine]", 
-      RowBox[{"AppendTo", "[", 
-       RowBox[{"poligonInd", ",", 
-        RowBox[{"auxiliar", "\[UndirectedEdge]", "vertice2"}]}], "]"}], ";", 
-      "\[IndentingNewLine]", "\[IndentingNewLine]", 
-      RowBox[{"(*", 
-       RowBox[{
-       "OBTENER", " ", "LAS", " ", "CONEXIONES", " ", "INTERMEDIAS", " ", 
-        "DE", " ", "LA", " ", "HORIZONTAL", " ", "DERECHA"}], "*)"}], 
-      "\[IndentingNewLine]", 
-      RowBox[{"auxiliar", " ", "=", " ", "vertice2"}], ";", 
-      "\[IndentingNewLine]", 
-      RowBox[{"For", "[", 
-       RowBox[{
-        RowBox[{"k", " ", "=", "1"}], ",", " ", 
-        RowBox[{"k", "\[LessEqual]", 
-         RowBox[{"Length", "[", "coordenadas", "]"}]}], ",", 
-        RowBox[{"k", "++"}], ",", "\[IndentingNewLine]", 
-        RowBox[{"If", "[", 
-         RowBox[{
-          RowBox[{
+          RowBox[{"AppendTo", "[", 
+           RowBox[{"poligonInd", ",", 
+            RowBox[{"auxiliar", "\[UndirectedEdge]", "vertice3"}]}], "]"}], 
+          ";", "\[IndentingNewLine]", "\[IndentingNewLine]", 
+          "\[IndentingNewLine]", "\[IndentingNewLine]", 
+          RowBox[{"(*", 
            RowBox[{
-            RowBox[{
-             RowBox[{"coordenadas", "[", 
-              RowBox[{"[", "k", "]"}], "]"}], "[", 
-             RowBox[{"[", "1", "]"}], "]"}], "==", "  ", "coorx2"}], " ", "&&",
-            "  ", 
-           RowBox[{
-            RowBox[{
-             RowBox[{"coordenadas", "[", 
-              RowBox[{"[", "k", "]"}], "]"}], "[", 
-             RowBox[{"[", "2", "]"}], "]"}], "<", " ", "coory1"}], " ", "&&", 
-           " ", 
-           RowBox[{
-            RowBox[{
-             RowBox[{"coordenadas", "[", 
-              RowBox[{"[", "k", "]"}], "]"}], "[", 
-             RowBox[{"[", "2", "]"}], "]"}], ">", "coory2"}]}], ",", 
+           "EL", " ", "PROCESO", " ", "ANTERIOR", " ", "SE", " ", "REPITE", 
+            " ", "EN", " ", "LOS", " ", "LADOS", " ", "RESTANTES"}], "*)"}], 
           "\[IndentingNewLine]", 
-          RowBox[{
-           RowBox[{"AppendTo", "[", 
-            RowBox[{"poligonInd", ",", 
-             RowBox[{"auxiliar", "\[UndirectedEdge]", "k"}]}], " ", "]"}], 
-           ";", "\[IndentingNewLine]", 
-           RowBox[{"auxiliar", " ", "=", " ", "k"}], ";"}]}], 
-         "\[IndentingNewLine]", "]"}]}], "\[IndentingNewLine]", "]"}], ";", 
-      "\[IndentingNewLine]", 
-      RowBox[{"AppendTo", "[", 
-       RowBox[{"poligonInd", ",", 
-        RowBox[{"auxiliar", "\[UndirectedEdge]", "vertice4"}]}], "]"}], ";", 
-      "\[IndentingNewLine]", "\[IndentingNewLine]", 
-      RowBox[{"(*", 
-       RowBox[{
-       "OBTENER", " ", "LAS", " ", "CONEXIONES", " ", "INTERMEDIAS", " ", 
-        "DE", " ", "LA", " ", "VERTICAL", " ", "SUPERIOR"}], "*)"}], 
-      "\[IndentingNewLine]", 
-      RowBox[{"auxiliar", " ", "=", " ", "vertice4"}], ";", 
-      "\[IndentingNewLine]", 
-      RowBox[{"For", "[", 
-       RowBox[{
-        RowBox[{"k", " ", "=", "1"}], ",", " ", 
-        RowBox[{"k", "\[LessEqual]", 
-         RowBox[{"Length", "[", "coordenadas", "]"}]}], ",", 
-        RowBox[{"k", "++"}], ",", "\[IndentingNewLine]", 
-        RowBox[{"If", "[", 
-         RowBox[{
-          RowBox[{
+          RowBox[{"(*", 
            RowBox[{
-            RowBox[{
-             RowBox[{"coordenadas", "[", 
-              RowBox[{"[", "k", "]"}], "]"}], "[", 
-             RowBox[{"[", "2", "]"}], "]"}], "==", "  ", "coory1"}], " ", "&&",
-            "  ", 
-           RowBox[{
-            RowBox[{
-             RowBox[{"coordenadas", "[", 
-              RowBox[{"[", "k", "]"}], "]"}], "[", 
-             RowBox[{"[", "1", "]"}], "]"}], ">", " ", "coorx1"}], " ", "&&", 
-           " ", 
-           RowBox[{
-            RowBox[{
-             RowBox[{"coordenadas", "[", 
-              RowBox[{"[", "k", "]"}], "]"}], "[", 
-             RowBox[{"[", "1", "]"}], "]"}], "<", "coorx2"}]}], ",", 
+           "OBTENER", " ", "LAS", " ", "CONEXIONES", " ", "INTERMEDIAS", " ", 
+            "DE", " ", "LA", " ", "VERTICAL", " ", "INFERIOR"}], "*)"}], 
           "\[IndentingNewLine]", 
-          RowBox[{
-           RowBox[{"AppendTo", "[", 
-            RowBox[{"poligonInd", ",", 
-             RowBox[{"auxiliar", "\[UndirectedEdge]", "k"}]}], " ", "]"}], 
-           ";", "\[IndentingNewLine]", 
-           RowBox[{"auxiliar", " ", "=", " ", "k"}], ";"}]}], 
-         "\[IndentingNewLine]", "]"}]}], "\[IndentingNewLine]", "]"}], ";", 
-      "\[IndentingNewLine]", 
-      RowBox[{"AppendTo", "[", 
-       RowBox[{"poligonInd", ",", 
-        RowBox[{"auxiliar", "\[UndirectedEdge]", "vertice1"}]}], "]"}], ";", 
-      "\[IndentingNewLine]", 
-      RowBox[{"AppendTo", "[", 
-       RowBox[{"poligonos", ",", "poligonInd"}], "]"}]}]}], 
-    "\[IndentingNewLine]", "]"}], "\[IndentingNewLine]", 
-   "\[IndentingNewLine]", 
-   RowBox[{"(*", 
-    RowBox[{
-    "LA", " ", "VARIABLE", " ", "FINAL", " ", "CONTIENE", " ", "LA", " ", 
-     "LISTA", " ", "DE", " ", "LOS", " ", "POLIGONOS"}], "*)"}], 
-   "\[IndentingNewLine]", "poligonos", "\[IndentingNewLine]"}]}]], "Input",
+          RowBox[{"auxiliar", " ", "=", " ", "vertice3"}], ";", 
+          "\[IndentingNewLine]", 
+          RowBox[{"For", "[", 
+           RowBox[{
+            RowBox[{"k", " ", "=", "1"}], ",", " ", 
+            RowBox[{"k", "\[LessEqual]", 
+             RowBox[{"Length", "[", "coordenadas", "]"}]}], ",", 
+            RowBox[{"k", "++"}], ",", "\[IndentingNewLine]", 
+            RowBox[{"If", "[", 
+             RowBox[{
+              RowBox[{
+               RowBox[{
+                RowBox[{
+                 RowBox[{"coordenadas", "[", 
+                  RowBox[{"[", "k", "]"}], "]"}], "[", 
+                 RowBox[{"[", "2", "]"}], "]"}], "==", "  ", "coory2"}], " ", 
+               "&&", "  ", 
+               RowBox[{
+                RowBox[{
+                 RowBox[{"coordenadas", "[", 
+                  RowBox[{"[", "k", "]"}], "]"}], "[", 
+                 RowBox[{"[", "1", "]"}], "]"}], ">", " ", "coorx1"}], " ", "&&",
+                " ", 
+               RowBox[{
+                RowBox[{
+                 RowBox[{"coordenadas", "[", 
+                  RowBox[{"[", "k", "]"}], "]"}], "[", 
+                 RowBox[{"[", "1", "]"}], "]"}], "<", "coorx2"}]}], ",", 
+              "\[IndentingNewLine]", 
+              RowBox[{
+               RowBox[{"AppendTo", "[", 
+                RowBox[{"poligonInd", ",", 
+                 RowBox[{"auxiliar", "\[UndirectedEdge]", "k"}]}], " ", "]"}],
+                ";", "\[IndentingNewLine]", 
+               RowBox[{"auxiliar", " ", "=", " ", "k"}], ";"}]}], 
+             "\[IndentingNewLine]", "]"}]}], "\[IndentingNewLine]", "]"}], 
+          ";", "\[IndentingNewLine]", 
+          RowBox[{"AppendTo", "[", 
+           RowBox[{"poligonInd", ",", 
+            RowBox[{"auxiliar", "\[UndirectedEdge]", "vertice2"}]}], "]"}], 
+          ";", "\[IndentingNewLine]", "\[IndentingNewLine]", 
+          RowBox[{"(*", 
+           RowBox[{
+           "OBTENER", " ", "LAS", " ", "CONEXIONES", " ", "INTERMEDIAS", " ", 
+            "DE", " ", "LA", " ", "HORIZONTAL", " ", "DERECHA"}], "*)"}], 
+          "\[IndentingNewLine]", 
+          RowBox[{"auxiliar", " ", "=", " ", "vertice2"}], ";", 
+          "\[IndentingNewLine]", 
+          RowBox[{"For", "[", 
+           RowBox[{
+            RowBox[{"k", " ", "=", "1"}], ",", " ", 
+            RowBox[{"k", "\[LessEqual]", 
+             RowBox[{"Length", "[", "coordenadas", "]"}]}], ",", 
+            RowBox[{"k", "++"}], ",", "\[IndentingNewLine]", 
+            RowBox[{"If", "[", 
+             RowBox[{
+              RowBox[{
+               RowBox[{
+                RowBox[{
+                 RowBox[{"coordenadas", "[", 
+                  RowBox[{"[", "k", "]"}], "]"}], "[", 
+                 RowBox[{"[", "1", "]"}], "]"}], "==", "  ", "coorx2"}], " ", 
+               "&&", "  ", 
+               RowBox[{
+                RowBox[{
+                 RowBox[{"coordenadas", "[", 
+                  RowBox[{"[", "k", "]"}], "]"}], "[", 
+                 RowBox[{"[", "2", "]"}], "]"}], "<", " ", "coory1"}], " ", "&&",
+                " ", 
+               RowBox[{
+                RowBox[{
+                 RowBox[{"coordenadas", "[", 
+                  RowBox[{"[", "k", "]"}], "]"}], "[", 
+                 RowBox[{"[", "2", "]"}], "]"}], ">", "coory2"}]}], ",", 
+              "\[IndentingNewLine]", 
+              RowBox[{
+               RowBox[{"AppendTo", "[", 
+                RowBox[{"poligonInd", ",", 
+                 RowBox[{"auxiliar", "\[UndirectedEdge]", "k"}]}], " ", "]"}],
+                ";", "\[IndentingNewLine]", 
+               RowBox[{"auxiliar", " ", "=", " ", "k"}], ";"}]}], 
+             "\[IndentingNewLine]", "]"}]}], "\[IndentingNewLine]", "]"}], 
+          ";", "\[IndentingNewLine]", 
+          RowBox[{"AppendTo", "[", 
+           RowBox[{"poligonInd", ",", 
+            RowBox[{"auxiliar", "\[UndirectedEdge]", "vertice4"}]}], "]"}], 
+          ";", "\[IndentingNewLine]", "\[IndentingNewLine]", 
+          RowBox[{"(*", 
+           RowBox[{
+           "OBTENER", " ", "LAS", " ", "CONEXIONES", " ", "INTERMEDIAS", " ", 
+            "DE", " ", "LA", " ", "VERTICAL", " ", "SUPERIOR"}], "*)"}], 
+          "\[IndentingNewLine]", 
+          RowBox[{"auxiliar", " ", "=", " ", "vertice4"}], ";", 
+          "\[IndentingNewLine]", 
+          RowBox[{"For", "[", 
+           RowBox[{
+            RowBox[{"k", " ", "=", "1"}], ",", " ", 
+            RowBox[{"k", "\[LessEqual]", 
+             RowBox[{"Length", "[", "coordenadas", "]"}]}], ",", 
+            RowBox[{"k", "++"}], ",", "\[IndentingNewLine]", 
+            RowBox[{"If", "[", 
+             RowBox[{
+              RowBox[{
+               RowBox[{
+                RowBox[{
+                 RowBox[{"coordenadas", "[", 
+                  RowBox[{"[", "k", "]"}], "]"}], "[", 
+                 RowBox[{"[", "2", "]"}], "]"}], "==", "  ", "coory1"}], " ", 
+               "&&", "  ", 
+               RowBox[{
+                RowBox[{
+                 RowBox[{"coordenadas", "[", 
+                  RowBox[{"[", "k", "]"}], "]"}], "[", 
+                 RowBox[{"[", "1", "]"}], "]"}], ">", " ", "coorx1"}], " ", "&&",
+                " ", 
+               RowBox[{
+                RowBox[{
+                 RowBox[{"coordenadas", "[", 
+                  RowBox[{"[", "k", "]"}], "]"}], "[", 
+                 RowBox[{"[", "1", "]"}], "]"}], "<", "coorx2"}]}], ",", 
+              "\[IndentingNewLine]", 
+              RowBox[{
+               RowBox[{"AppendTo", "[", 
+                RowBox[{"poligonInd", ",", 
+                 RowBox[{"auxiliar", "\[UndirectedEdge]", "k"}]}], " ", "]"}],
+                ";", "\[IndentingNewLine]", 
+               RowBox[{"auxiliar", " ", "=", " ", "k"}], ";"}]}], 
+             "\[IndentingNewLine]", "]"}]}], "\[IndentingNewLine]", "]"}], 
+          ";", "\[IndentingNewLine]", 
+          RowBox[{"AppendTo", "[", 
+           RowBox[{"poligonInd", ",", 
+            RowBox[{"auxiliar", "\[UndirectedEdge]", "vertice1"}]}], "]"}], 
+          ";", "\[IndentingNewLine]", 
+          RowBox[{"AppendTo", "[", 
+           RowBox[{"poligonos", ",", "poligonInd"}], "]"}], ";"}]}], 
+        "\[IndentingNewLine]", "]"}], ";", "\[IndentingNewLine]", 
+       RowBox[{"(*", 
+        RowBox[{
+        "LA", " ", "VARIABLE", " ", "FINAL", " ", "CONTIENE", " ", "LA", " ", 
+         "LISTA", " ", "DE", " ", "LOS", " ", "POLIGONOS"}], "*)"}], 
+       "\[IndentingNewLine]", "poligonos"}]}], "\[IndentingNewLine]", 
+     "\[IndentingNewLine]", "]"}]}], "\[IndentingNewLine]"}]}]], "Input",
  CellChangeTimes->{{3.740574346473171*^9, 3.7405743794163713`*^9}, {
    3.740574497451503*^9, 3.740574525817265*^9}, {3.740574558991008*^9, 
    3.7405745852009363`*^9}, 3.740574802174233*^9, {3.740574915291854*^9, 
@@ -833,325 +848,222 @@ Cell[BoxData[
    3.7405863182362223`*^9, 3.740586468886772*^9}, {3.740586531713378*^9, 
    3.7405865319383173`*^9}, {3.74058663430322*^9, 3.7405866361054907`*^9}, {
    3.7405868978785*^9, 3.740586957707294*^9}, {3.7405871404470654`*^9, 
-   3.74058765419296*^9}},ExpressionUUID->"5468d494-06df-4476-932d-\
-8101262ad13f"],
+   3.74058765419296*^9}, {3.740588674755809*^9, 3.74058895619135*^9}, {
+   3.740589524825473*^9, 3.740589525806026*^9}, {3.740589592543923*^9, 
+   3.740589619530635*^9}, {3.7405898834983263`*^9, 3.740589908123004*^9}, {
+   3.740589951386917*^9, 3.740589970107234*^9}, {3.740590244696707*^9, 
+   3.7405902463089733`*^9}, 3.740590839338045*^9, {3.740591065426725*^9, 
+   3.740591080786624*^9}, {3.740591126928246*^9, 3.7405911529664*^9}, {
+   3.740591316248659*^9, 3.740591317176903*^9}, {3.740591360824596*^9, 
+   3.740591373507399*^9}, {3.740591405407202*^9, 3.740591447643165*^9}, {
+   3.740603144029079*^9, 
+   3.7406031447798567`*^9}},ExpressionUUID->"5468d494-06df-4476-932d-\
+8101262ad13f"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Obtencion de la lista de vertices en la periferia", "Subchapter",
+ CellChangeTimes->{{3.740601480308641*^9, 
+  3.740601491620441*^9}},ExpressionUUID->"6dacb785-2920-4c48-a544-\
+7ba855e26222"],
 
 Cell[BoxData[
- RowBox[{"{", 
+ RowBox[{
+  StyleBox["\[IndentingNewLine]",
+   FontSize->9], 
   RowBox[{
-   RowBox[{"{", 
-    RowBox[{"0", ",", "5000"}], "}"}], ",", 
-   RowBox[{"{", 
-    RowBox[{"2500", ",", "5000"}], "}"}], ",", 
-   RowBox[{"{", 
-    RowBox[{"4000", ",", "5000"}], "}"}], ",", 
-   RowBox[{"{", 
-    RowBox[{"5000", ",", "5000"}], "}"}], ",", 
-   RowBox[{"{", 
-    RowBox[{"0", ",", "3000"}], "}"}], ",", 
-   RowBox[{"{", 
-    RowBox[{"2000", ",", "3000"}], "}"}], ",", 
-   RowBox[{"{", 
-    RowBox[{"2500", ",", "3000"}], "}"}], ",", 
-   RowBox[{"{", 
-    RowBox[{"4000", ",", "2750"}], "}"}], ",", 
-   RowBox[{"{", 
-    RowBox[{"5000", ",", "2750"}], "}"}], ",", 
-   RowBox[{"{", 
-    RowBox[{"2000", ",", "2000"}], "}"}], ",", 
-   RowBox[{"{", 
-    RowBox[{"2500", ",", "2000"}], "}"}], ",", 
-   RowBox[{"{", 
-    RowBox[{"3750", ",", "2000"}], "}"}], ",", 
-   RowBox[{"{", 
-    RowBox[{"4000", ",", "2000"}], "}"}], ",", 
-   RowBox[{"{", 
-    RowBox[{"5000", ",", "2000"}], "}"}], ",", 
-   RowBox[{"{", 
-    RowBox[{"3750", ",", "1250"}], "}"}], ",", 
-   RowBox[{"{", 
-    RowBox[{"5000", ",", "1250"}], "}"}], ",", 
-   RowBox[{"{", 
-    RowBox[{"0", ",", "500"}], "}"}], ",", 
-   RowBox[{"{", 
-    RowBox[{"2000", ",", "500"}], "}"}], ",", 
-   RowBox[{"{", 
-    RowBox[{"0", ",", "0"}], "}"}], ",", 
-   RowBox[{"{", 
-    RowBox[{"2000", ",", "0"}], "}"}], ",", 
-   RowBox[{"{", 
-    RowBox[{"3750", ",", "0"}], "}"}], ",", 
-   RowBox[{"{", 
-    RowBox[{"5000", ",", "0"}], "}"}]}], "}"}]], "Output",
- CellChangeTimes->{{3.740586632103902*^9, 3.740586660814803*^9}, 
-   3.740587655040922*^9},ExpressionUUID->"d10b8cb6-d5cb-4ffe-99e4-\
-f5e0b9a0120b"],
+   RowBox[{
+    StyleBox[
+     RowBox[{"getListOfPeriferia", "[", "v_", "]"}],
+     FontSize->9], 
+    StyleBox[":=",
+     FontSize->9], 
+    StyleBox[" ",
+     FontSize->9], 
+    RowBox[{"Module", "[", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{
+       "vertices", ",", "xs", ",", "ys", ",", "maxX", ",", "maxY", ",", 
+        "verticesPeriferia"}], "}"}], ",", "\[IndentingNewLine]", 
+      RowBox[{
+       RowBox[{"vertices", "=", "v"}], ";", 
+       StyleBox["\[IndentingNewLine]",
+        FontSize->9], 
+       RowBox[{"(*", 
+        RowBox[{"COORDENADAS", " ", "DE", " ", "X"}], "*)"}], 
+       StyleBox["\[IndentingNewLine]",
+        FontSize->9], 
+       RowBox[{"xs", "=", 
+        RowBox[{"{", "}"}]}], ";", "\[IndentingNewLine]", 
+       RowBox[{"(*", 
+        RowBox[{"COORDENADAS", " ", "DE", " ", "Y"}], "*)"}], 
+       "\[IndentingNewLine]", 
+       RowBox[{"ys", "=", 
+        RowBox[{"{", "}"}]}], ";", "\[IndentingNewLine]", 
+       RowBox[{"For", "[", 
+        RowBox[{
+         RowBox[{"x", "=", "1"}], ",", 
+         RowBox[{"x", "\[LessEqual]", 
+          RowBox[{"Length", "[", "vertices", "]"}]}], ",", 
+         RowBox[{"x", "++"}], ",", "\[IndentingNewLine]", 
+         RowBox[{
+          RowBox[{"AppendTo", "[", 
+           RowBox[{"xs", ",", 
+            RowBox[{
+             RowBox[{"vertices", "[", 
+              RowBox[{"[", "x", "]"}], "]"}], "[", 
+             RowBox[{"[", "1", "]"}], "]"}]}], " ", "]"}], ";", 
+          "\[IndentingNewLine]", 
+          RowBox[{"AppendTo", "[", 
+           RowBox[{"ys", ",", 
+            RowBox[{
+             RowBox[{"vertices", "[", 
+              RowBox[{"[", "x", "]"}], "]"}], "[", 
+             RowBox[{"[", "2", "]"}], "]"}]}], " ", "]"}]}]}], 
+        "\[IndentingNewLine]", "]"}], ";", "\[IndentingNewLine]", 
+       "\[IndentingNewLine]", 
+       RowBox[{"(*", 
+        RowBox[{
+         RowBox[{
+         "OBTENER", " ", "LAS", " ", "COORDENADAS", " ", "MAYOYES", " ", 
+          "DEL", " ", "GRAFO"}], ";", " ", 
+         RowBox[{"PARA", " ", "CONOCER", " ", "LOS", " ", "LIMITES"}]}], 
+        "*)"}], "\[IndentingNewLine]", 
+       RowBox[{"(*", 
+        RowBox[{
+        "OBTENCION", " ", "DE", " ", "LA", " ", "COORDENADA", " ", "EN", " ", 
+         "X", " ", "MAYOR"}], "*)"}], "\[IndentingNewLine]", 
+       RowBox[{"maxX", " ", "=", " ", 
+        RowBox[{"Max", "[", "xs", "]"}]}], ";", "\[IndentingNewLine]", 
+       RowBox[{"(*", 
+        RowBox[{
+        "OBTENCION", " ", "DE", " ", "LA", " ", "COORDENADA", " ", "EN", " ", 
+         "Y", " ", "MAYOR"}], "*)"}], "\[IndentingNewLine]", 
+       RowBox[{"maxY", " ", "=", " ", 
+        RowBox[{"Max", "[", "ys", "]"}]}], ";", "\[IndentingNewLine]", 
+       "\[IndentingNewLine]", 
+       RowBox[{"(*", 
+        RowBox[{
+        "VARIABLE", " ", "CONTENEDORA", " ", "DE", " ", "LOS", " ", 
+         "VERTICES", " ", "QUE", " ", "SE", " ", "ENCUENTREN", " ", "EN", " ",
+          "LA", " ", "PERIFERIA"}], "*)"}], "\[IndentingNewLine]", 
+       RowBox[{"verticesPeriferia", "=", " ", 
+        RowBox[{"{", "}"}]}], ";", "\[IndentingNewLine]", 
+       RowBox[{"(*", 
+        RowBox[{
+        "SE", " ", "RECORRE", " ", "LA", " ", "LISTA", " ", "DE", " ", 
+         "VERTICES", " ", "Y", " ", "SUS", " ", "COORDENADAS"}], "*)"}], 
+       "\[IndentingNewLine]", 
+       RowBox[{"For", "[", 
+        RowBox[{
+         RowBox[{"x", "=", "1"}], ",", " ", 
+         RowBox[{"x", "\[LessEqual]", 
+          RowBox[{"Length", "[", "vertices", "]"}]}], ",", 
+         RowBox[{"x", "++"}], ",", "\[IndentingNewLine]", 
+         RowBox[{"(*", 
+          RowBox[{
+           RowBox[{
+           "SI", " ", "LA", " ", "COORDENADA", " ", "X", " ", "O", " ", "Y", 
+            " ", "SE", " ", "ENCUENTRA", " ", "EN", " ", "LOS", " ", 
+            "L\[CapitalIAcute]MITES", " ", "DEL", " ", "GRAFO"}], ",", " ", 
+           RowBox[{
+           "ES", " ", "UN", " ", "VERTICE", " ", "EN", " ", "LA", " ", 
+            "PERIFERIA"}]}], "*)"}], "\[IndentingNewLine]", 
+         RowBox[{
+          RowBox[{"If", "[", 
+           RowBox[{
+            RowBox[{
+             RowBox[{
+              RowBox[{
+               RowBox[{"vertices", "[", 
+                RowBox[{"[", "x", "]"}], "]"}], "[", 
+               RowBox[{"[", "1", "]"}], "]"}], "\[Equal]", " ", "maxX"}], " ",
+              "||", " ", 
+             RowBox[{
+              RowBox[{
+               RowBox[{"vertices", "[", 
+                RowBox[{"[", "x", "]"}], "]"}], "[", 
+               RowBox[{"[", "2", "]"}], "]"}], "\[Equal]", " ", "maxY"}], " ",
+              "||", " ", 
+             RowBox[{
+              RowBox[{
+               RowBox[{"vertices", "[", 
+                RowBox[{"[", "x", "]"}], "]"}], "[", 
+               RowBox[{"[", "2", "]"}], "]"}], "\[Equal]", " ", "0"}], " ", "||",
+              " ", 
+             RowBox[{
+              RowBox[{
+               RowBox[{"vertices", "[", 
+                RowBox[{"[", "x", "]"}], "]"}], "[", 
+               RowBox[{"[", "1", "]"}], "]"}], "\[Equal]", " ", "0"}]}], " ", 
+            ",", "\[IndentingNewLine]", 
+            RowBox[{"(*", 
+             RowBox[{
+             "SE", " ", "AGREGA", " ", "EL", " ", "VERTICE", " ", "A", " ", 
+              "LA", " ", "LISTA", " ", "DE", " ", "VERTICES", " ", "EN", " ", 
+              "LA", " ", "PERIFERIA"}], "*)"}], "\[IndentingNewLine]", 
+            RowBox[{"AppendTo", "[", 
+             RowBox[{"verticesPeriferia", ",", " ", 
+              RowBox[{
+               RowBox[{"vertices", "[", 
+                RowBox[{"[", "x", "]"}], "]"}], "[", 
+               RowBox[{"[", "3", "]"}], "]"}]}], " ", "]"}]}], 
+           "\[IndentingNewLine]", "]"}], ";"}]}], "\[IndentingNewLine]", 
+        "]"}], ";", "\[IndentingNewLine]", 
+       RowBox[{"(*", 
+        RowBox[{"VERTICES", " ", "DE", " ", "LA", " ", "PERIFERIA"}], "*)"}], 
+       "\[IndentingNewLine]", "verticesPeriferia"}]}], "\[IndentingNewLine]", 
+     "]"}]}], "\[IndentingNewLine]", 
+   StyleBox["\[IndentingNewLine]",
+    FontSize->9], "\[IndentingNewLine]", "\[IndentingNewLine]", 
+   "\[IndentingNewLine]"}]}]], "Input",
+ CellChangeTimes->{{3.7406015421320047`*^9, 3.740601569739224*^9}, 
+   3.740601685117132*^9, {3.740601717413341*^9, 3.740601717800652*^9}, {
+   3.74060174995233*^9, 3.740601830290638*^9}, {3.7406019424968147`*^9, 
+   3.740601943537258*^9}, {3.7406020047323914`*^9, 3.740602126632538*^9}, {
+   3.740602652943399*^9, 3.740602665413995*^9}, {3.740602708393255*^9, 
+   3.7406028655677233`*^9}, {3.740602931370399*^9, 3.740602978668634*^9}, {
+   3.740603040274311*^9, 3.7406030663264236`*^9}, {3.740603135733059*^9, 
+   3.7406031376116657`*^9}, {3.7406031875159483`*^9, 
+   3.740603189261533*^9}},ExpressionUUID->"4d1dbfff-0b93-4b8c-be0e-\
+101b4bb45e24"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Algoritmo para la obtencion de la ruta cr\[IAcute]tica", "Subchapter",
+ CellChangeTimes->{{3.740603120221477*^9, 
+  3.740603130444607*^9}},ExpressionUUID->"1e4ab669-0dc5-4761-8a77-\
+faf176a2f47a"],
 
 Cell[BoxData[
- GraphicsBox[
-  NamespaceBox["NetworkGraphics",
-   DynamicModuleBox[{Typeset`graph = HoldComplete[
-     Graph[{1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19,
-       20, 21, 22}, {
-      Null, {{1, 2}, {2, 3}, {3, 4}, {5, 6}, {6, 7}, {8, 9}, {10, 11}, {11, 
-       12}, {12, 13}, {13, 14}, {15, 16}, {17, 18}, {19, 20}, {20, 21}, {21, 
-       22}, {4, 9}, {9, 14}, {14, 16}, {16, 22}, {3, 8}, {8, 13}, {12, 15}, {
-       15, 21}, {2, 7}, {7, 11}, {6, 10}, {10, 18}, {18, 20}, {1, 5}, {5, 
-       17}, {17, 19}}}, {
-      EdgeLabels -> {
-        UndirectedEdge[12, 15] -> 750, UndirectedEdge[8, 13] -> 750, 
-         UndirectedEdge[20, 21] -> 1750, UndirectedEdge[3, 8] -> 2250, 
-         UndirectedEdge[19, 20] -> 2000, UndirectedEdge[15, 16] -> 1250, 
-         UndirectedEdge[1, 5] -> 2000, UndirectedEdge[9, 14] -> 750, 
-         UndirectedEdge[13, 14] -> 1000, UndirectedEdge[2, 7] -> 2000, 
-         UndirectedEdge[3, 4] -> 1000, UndirectedEdge[6, 10] -> 1000, 
-         UndirectedEdge[10, 18] -> 1500, UndirectedEdge[10, 11] -> 500, 
-         UndirectedEdge[5, 6] -> 2000, UndirectedEdge[7, 11] -> 1000, 
-         UndirectedEdge[11, 12] -> 1250, UndirectedEdge[1, 2] -> 2500, 
-         UndirectedEdge[18, 20] -> 500, UndirectedEdge[14, 16] -> 750, 
-         UndirectedEdge[4, 9] -> 2250, UndirectedEdge[17, 19] -> 500, 
-         UndirectedEdge[21, 22] -> 1250, UndirectedEdge[12, 13] -> 250, 
-         UndirectedEdge[2, 3] -> 1500, UndirectedEdge[15, 21] -> 1250, 
-         UndirectedEdge[6, 7] -> 500, UndirectedEdge[16, 22] -> 1250, 
-         UndirectedEdge[17, 18] -> 2000, UndirectedEdge[5, 17] -> 2500, 
-         UndirectedEdge[8, 9] -> 1000}, VertexLabels -> {"Name"}, 
-       VertexSize -> {Medium}, 
-       EdgeWeight -> {2500, 1500, 1000, 2000, 500, 1000, 500, 1250, 250, 1000,
-         1250, 2000, 2000, 1750, 1250, 2250, 750, 750, 1250, 2250, 750, 750, 
-        1250, 2000, 1000, 1000, 1500, 500, 2000, 2500, 500}, 
-       VertexCoordinates -> {{0, 5000}, {2500, 5000}, {4000, 5000}, {5000, 
-        5000}, {0, 3000}, {2000, 3000}, {2500, 3000}, {4000, 2750}, {5000, 
-        2750}, {2000, 2000}, {2500, 2000}, {3750, 2000}, {4000, 2000}, {5000, 
-        2000}, {3750, 1250}, {5000, 1250}, {0, 500}, {2000, 500}, {0, 0}, {
-        2000, 0}, {3750, 0}, {5000, 0}}}]]}, 
-    TagBox[GraphicsGroupBox[{
-       {Hue[0.6, 0.7, 0.5], Opacity[0.7], {
-         {Arrowheads[0.], ArrowBox[{{0., 5000.}, {2500., 5000.}}, 25.]}, 
-         InsetBox["2500", {1250., 5000.}, ImageScaled[{0.5, 0.5}],
-          BaseStyle->"Graphics"]}, {
-         {Arrowheads[0.], ArrowBox[{{0., 5000.}, {0., 3000.}}, 25.]}, 
-         InsetBox["2000", {0., 4000.}, ImageScaled[{0.5, 0.5}],
-          BaseStyle->"Graphics"]}, {
-         {Arrowheads[0.], ArrowBox[{{2500., 5000.}, {4000., 5000.}}, 25.]}, 
-         InsetBox["1500", {3250., 5000.}, ImageScaled[{0.5, 0.5}],
-          BaseStyle->"Graphics"]}, {
-         {Arrowheads[0.], ArrowBox[{{2500., 5000.}, {2500., 3000.}}, 25.]}, 
-         InsetBox["2000", {2500., 4000.}, ImageScaled[{0.5, 0.5}],
-          BaseStyle->"Graphics"]}, {
-         {Arrowheads[0.], ArrowBox[{{4000., 5000.}, {5000., 5000.}}, 25.]}, 
-         InsetBox["1000", {4500., 5000.}, ImageScaled[{0.5, 0.5}],
-          BaseStyle->"Graphics"]}, {
-         {Arrowheads[0.], ArrowBox[{{4000., 5000.}, {4000., 2750.}}, 25.]}, 
-         InsetBox["2250", {4000., 3875.}, ImageScaled[{0.5, 0.5}],
-          BaseStyle->"Graphics"]}, {
-         {Arrowheads[0.], ArrowBox[{{5000., 5000.}, {5000., 2750.}}, 25.]}, 
-         InsetBox["2250", {5000., 3875.}, ImageScaled[{0.5, 0.5}],
-          BaseStyle->"Graphics"]}, {
-         {Arrowheads[0.], ArrowBox[{{0., 3000.}, {2000., 3000.}}, 25.]}, 
-         InsetBox["2000", {1000., 3000.}, ImageScaled[{0.5, 0.5}],
-          BaseStyle->"Graphics"]}, {
-         {Arrowheads[0.], ArrowBox[{{0., 3000.}, {0., 500.}}, 25.]}, 
-         InsetBox["2500", {0., 1750.}, ImageScaled[{0.5, 0.5}],
-          BaseStyle->"Graphics"]}, {
-         {Arrowheads[0.], ArrowBox[{{2000., 3000.}, {2500., 3000.}}, 25.]}, 
-         InsetBox["500", {2250., 3000.}, ImageScaled[{0.5, 0.5}],
-          BaseStyle->"Graphics"]}, {
-         {Arrowheads[0.], ArrowBox[{{2000., 3000.}, {2000., 2000.}}, 25.]}, 
-         InsetBox["1000", {2000., 2500.}, ImageScaled[{0.5, 0.5}],
-          BaseStyle->"Graphics"]}, {
-         {Arrowheads[0.], ArrowBox[{{2500., 3000.}, {2500., 2000.}}, 25.]}, 
-         InsetBox["1000", {2500., 2500.}, ImageScaled[{0.5, 0.5}],
-          BaseStyle->"Graphics"]}, {
-         {Arrowheads[0.], ArrowBox[{{4000., 2750.}, {5000., 2750.}}, 25.]}, 
-         InsetBox["1000", {4500., 2750.}, ImageScaled[{0.5, 0.5}],
-          BaseStyle->"Graphics"]}, {
-         {Arrowheads[0.], ArrowBox[{{4000., 2750.}, {4000., 2000.}}, 25.]}, 
-         InsetBox["750", {4000., 2375.}, ImageScaled[{0.5, 0.5}],
-          BaseStyle->"Graphics"]}, {
-         {Arrowheads[0.], ArrowBox[{{5000., 2750.}, {5000., 2000.}}, 25.]}, 
-         InsetBox["750", {5000., 2375.}, ImageScaled[{0.5, 0.5}],
-          BaseStyle->"Graphics"]}, {
-         {Arrowheads[0.], ArrowBox[{{2000., 2000.}, {2500., 2000.}}, 25.]}, 
-         InsetBox["500", {2250., 2000.}, ImageScaled[{0.5, 0.5}],
-          BaseStyle->"Graphics"]}, {
-         {Arrowheads[0.], ArrowBox[{{2000., 2000.}, {2000., 500.}}, 25.]}, 
-         InsetBox["1500", {2000., 1250.}, ImageScaled[{0.5, 0.5}],
-          BaseStyle->"Graphics"]}, {
-         {Arrowheads[0.], ArrowBox[{{2500., 2000.}, {3750., 2000.}}, 25.]}, 
-         InsetBox["1250", {3125., 2000.}, ImageScaled[{0.5, 0.5}],
-          BaseStyle->"Graphics"]}, {
-         {Arrowheads[0.], ArrowBox[{{3750., 2000.}, {4000., 2000.}}, 25.]}, 
-         InsetBox["250", {3875., 2000.}, ImageScaled[{0.5, 0.5}],
-          BaseStyle->"Graphics"]}, {
-         {Arrowheads[0.], ArrowBox[{{3750., 2000.}, {3750., 1250.}}, 25.]}, 
-         InsetBox["750", {3750., 1625.}, ImageScaled[{0.5, 0.5}],
-          BaseStyle->"Graphics"]}, {
-         {Arrowheads[0.], ArrowBox[{{4000., 2000.}, {5000., 2000.}}, 25.]}, 
-         InsetBox["1000", {4500., 2000.}, ImageScaled[{0.5, 0.5}],
-          BaseStyle->"Graphics"]}, {
-         {Arrowheads[0.], ArrowBox[{{5000., 2000.}, {5000., 1250.}}, 25.]}, 
-         InsetBox["750", {5000., 1625.}, ImageScaled[{0.5, 0.5}],
-          BaseStyle->"Graphics"]}, {
-         {Arrowheads[0.], ArrowBox[{{3750., 1250.}, {5000., 1250.}}, 25.]}, 
-         InsetBox["1250", {4375., 1250.}, ImageScaled[{0.5, 0.5}],
-          BaseStyle->"Graphics"]}, {
-         {Arrowheads[0.], ArrowBox[{{3750., 1250.}, {3750., 0.}}, 25.]}, 
-         InsetBox["1250", {3750., 625.}, ImageScaled[{0.5, 0.5}],
-          BaseStyle->"Graphics"]}, {
-         {Arrowheads[0.], ArrowBox[{{5000., 1250.}, {5000., 0.}}, 25.]}, 
-         InsetBox["1250", {5000., 625.}, ImageScaled[{0.5, 0.5}],
-          BaseStyle->"Graphics"]}, {
-         {Arrowheads[0.], ArrowBox[{{0., 500.}, {2000., 500.}}, 25.]}, 
-         InsetBox["2000", {1000., 500.}, ImageScaled[{0.5, 0.5}],
-          BaseStyle->"Graphics"]}, {
-         {Arrowheads[0.], ArrowBox[{{0., 500.}, {0., 0.}}, 25.]}, 
-         InsetBox["500", {0., 250.}, ImageScaled[{0.5, 0.5}],
-          BaseStyle->"Graphics"]}, {
-         {Arrowheads[0.], ArrowBox[{{2000., 500.}, {2000., 0.}}, 25.]}, 
-         InsetBox["500", {2000., 250.}, ImageScaled[{0.5, 0.5}],
-          BaseStyle->"Graphics"]}, {
-         {Arrowheads[0.], ArrowBox[{{0., 0.}, {2000., 0.}}, 25.]}, 
-         InsetBox["2000", {1000., 0.}, ImageScaled[{0.5, 0.5}],
-          BaseStyle->"Graphics"]}, {
-         {Arrowheads[0.], ArrowBox[{{2000., 0.}, {3750., 0.}}, 25.]}, 
-         InsetBox["1750", {2875., 0.}, ImageScaled[{0.5, 0.5}],
-          BaseStyle->"Graphics"]}, {
-         {Arrowheads[0.], ArrowBox[{{3750., 0.}, {5000., 0.}}, 25.]}, 
-         InsetBox["1250", {4375., 0.}, ImageScaled[{0.5, 0.5}],
-          BaseStyle->"Graphics"]}}, 
-       {Hue[0.6, 0.2, 0.8], EdgeForm[{GrayLevel[0], Opacity[
-        0.7]}], {DiskBox[{0., 5000.}, 25.], 
-         InsetBox["1", Offset[{2, 2}, {25., 5025.}], ImageScaled[{0, 0}],
-          BaseStyle->"Graphics"]}, {DiskBox[{2500., 5000.}, 25.], 
-         InsetBox["2", Offset[{2, 2}, {2525., 5025.}], ImageScaled[{0, 0}],
-          BaseStyle->"Graphics"]}, {DiskBox[{4000., 5000.}, 25.], 
-         InsetBox["3", Offset[{2, 2}, {4025., 5025.}], ImageScaled[{0, 0}],
-          BaseStyle->"Graphics"]}, {DiskBox[{5000., 5000.}, 25.], 
-         InsetBox["4", Offset[{2, 2}, {5025., 5025.}], ImageScaled[{0, 0}],
-          BaseStyle->"Graphics"]}, {DiskBox[{0., 3000.}, 25.], 
-         InsetBox["5", Offset[{2, 2}, {25., 3025.}], ImageScaled[{0, 0}],
-          BaseStyle->"Graphics"]}, {DiskBox[{2000., 3000.}, 25.], 
-         InsetBox["6", Offset[{2, 2}, {2025., 3025.}], ImageScaled[{0, 0}],
-          BaseStyle->"Graphics"]}, {DiskBox[{2500., 3000.}, 25.], 
-         InsetBox["7", Offset[{2, 2}, {2525., 3025.}], ImageScaled[{0, 0}],
-          BaseStyle->"Graphics"]}, {DiskBox[{4000., 2750.}, 25.], 
-         InsetBox["8", Offset[{2, 2}, {4025., 2775.}], ImageScaled[{0, 0}],
-          BaseStyle->"Graphics"]}, {DiskBox[{5000., 2750.}, 25.], 
-         InsetBox["9", Offset[{2, 2}, {5025., 2775.}], ImageScaled[{0, 0}],
-          BaseStyle->"Graphics"]}, {DiskBox[{2000., 2000.}, 25.], 
-         InsetBox["10", Offset[{2, 2}, {2025., 2025.}], ImageScaled[{0, 0}],
-          BaseStyle->"Graphics"]}, {DiskBox[{2500., 2000.}, 25.], 
-         InsetBox["11", Offset[{2, 2}, {2525., 2025.}], ImageScaled[{0, 0}],
-          BaseStyle->"Graphics"]}, {DiskBox[{3750., 2000.}, 25.], 
-         InsetBox["12", Offset[{2, 2}, {3775., 2025.}], ImageScaled[{0, 0}],
-          BaseStyle->"Graphics"]}, {DiskBox[{4000., 2000.}, 25.], 
-         InsetBox["13", Offset[{2, 2}, {4025., 2025.}], ImageScaled[{0, 0}],
-          BaseStyle->"Graphics"]}, {DiskBox[{5000., 2000.}, 25.], 
-         InsetBox["14", Offset[{2, 2}, {5025., 2025.}], ImageScaled[{0, 0}],
-          BaseStyle->"Graphics"]}, {DiskBox[{3750., 1250.}, 25.], 
-         InsetBox["15", Offset[{2, 2}, {3775., 1275.}], ImageScaled[{0, 0}],
-          BaseStyle->"Graphics"]}, {DiskBox[{5000., 1250.}, 25.], 
-         InsetBox["16", Offset[{2, 2}, {5025., 1275.}], ImageScaled[{0, 0}],
-          BaseStyle->"Graphics"]}, {DiskBox[{0., 500.}, 25.], 
-         InsetBox["17", Offset[{2, 2}, {25., 525.}], ImageScaled[{0, 0}],
-          BaseStyle->"Graphics"]}, {DiskBox[{2000., 500.}, 25.], 
-         InsetBox["18", Offset[{2, 2}, {2025., 525.}], ImageScaled[{0, 0}],
-          BaseStyle->"Graphics"]}, {DiskBox[{0., 0.}, 25.], 
-         InsetBox["19", Offset[{2, 2}, {25., 25.}], ImageScaled[{0, 0}],
-          BaseStyle->"Graphics"]}, {DiskBox[{2000., 0.}, 25.], 
-         InsetBox["20", Offset[{2, 2}, {2025., 25.}], ImageScaled[{0, 0}],
-          BaseStyle->"Graphics"]}, {DiskBox[{3750., 0.}, 25.], 
-         InsetBox["21", Offset[{2, 2}, {3775., 25.}], ImageScaled[{0, 0}],
-          BaseStyle->"Graphics"]}, {DiskBox[{5000., 0.}, 25.], 
-         InsetBox["22", Offset[{2, 2}, {5025., 25.}], ImageScaled[{0, 0}],
-          BaseStyle->"Graphics"]}}}],
-     MouseAppearanceTag["NetworkGraphics"]],
-    AllowKernelInitialization->False]],
-  DefaultBaseStyle->{
-   "NetworkGraphics", FrontEnd`GraphicsHighlightColor -> Hue[0.8, 1., 0.6]},
-  FormatType->TraditionalForm,
-  FrameTicks->None,
-  ImageSize->{309.2005208333316, Automatic}]], "Output",
- CellChangeTimes->{{3.740586632103902*^9, 3.740586660814803*^9}, 
-   3.740587655133905*^9},ExpressionUUID->"3a6c3ed7-206f-4a12-a355-\
-fca5457d49b3"],
-
-Cell[BoxData[
- RowBox[{"{", 
+ RowBox[{
+  RowBox[{"(*", 
+   RowBox[{
+   "OBTENER", " ", "LA", " ", "LISTA", " ", "DE", " ", "LOS", " ", 
+    "POLIGONOS", " ", "EN", " ", "EL", " ", "GRAFO"}], "*)"}], 
+  "\[IndentingNewLine]", 
   RowBox[{
-   RowBox[{"{", 
+   RowBox[{
+    FormBox[
+     RowBox[{"poligonos", "=", 
+      RowBox[{"obtenerListaPoligonos", "(", 
+       RowBox[{"g", ",", "datos"}], ")"}]}],
+     TraditionalForm], ";"}], "\[IndentingNewLine]", 
+   RowBox[{"(*", 
     RowBox[{
-     RowBox[{"6", "\[UndirectedEdge]", "10"}], ",", 
-     RowBox[{"10", "\[UndirectedEdge]", "11"}], ",", 
-     RowBox[{"11", "\[UndirectedEdge]", "7"}], ",", 
-     RowBox[{"7", "\[UndirectedEdge]", "6"}]}], "}"}], ",", 
-   RowBox[{"{", 
-    RowBox[{
-     RowBox[{"8", "\[UndirectedEdge]", "13"}], ",", 
-     RowBox[{"13", "\[UndirectedEdge]", "14"}], ",", 
-     RowBox[{"14", "\[UndirectedEdge]", "9"}], ",", 
-     RowBox[{"9", "\[UndirectedEdge]", "8"}]}], "}"}], ",", 
-   RowBox[{"{", 
-    RowBox[{
-     RowBox[{"1", "\[UndirectedEdge]", "5"}], ",", 
-     RowBox[{"5", "\[UndirectedEdge]", "6"}], ",", 
-     RowBox[{"6", "\[UndirectedEdge]", "7"}], ",", 
-     RowBox[{"7", "\[UndirectedEdge]", "2"}], ",", 
-     RowBox[{"2", "\[UndirectedEdge]", "1"}]}], "}"}], ",", 
-   RowBox[{"{", 
-    RowBox[{
-     RowBox[{"2", "\[UndirectedEdge]", "7"}], ",", 
-     RowBox[{"7", "\[UndirectedEdge]", "11"}], ",", 
-     RowBox[{"11", "\[UndirectedEdge]", "12"}], ",", 
-     RowBox[{"12", "\[UndirectedEdge]", "13"}], ",", 
-     RowBox[{"13", "\[UndirectedEdge]", "8"}], ",", 
-     RowBox[{"8", "\[UndirectedEdge]", "3"}], ",", 
-     RowBox[{"3", "\[UndirectedEdge]", "2"}]}], "}"}], ",", 
-   RowBox[{"{", 
-    RowBox[{
-     RowBox[{"3", "\[UndirectedEdge]", "8"}], ",", 
-     RowBox[{"8", "\[UndirectedEdge]", "9"}], ",", 
-     RowBox[{"9", "\[UndirectedEdge]", "4"}], ",", 
-     RowBox[{"4", "\[UndirectedEdge]", "3"}]}], "}"}], ",", 
-   RowBox[{"{", 
-    RowBox[{
-     RowBox[{"10", "\[UndirectedEdge]", "18"}], ",", 
-     RowBox[{"18", "\[UndirectedEdge]", "20"}], ",", 
-     RowBox[{"20", "\[UndirectedEdge]", "21"}], ",", 
-     RowBox[{"21", "\[UndirectedEdge]", "15"}], ",", 
-     RowBox[{"15", "\[UndirectedEdge]", "12"}], ",", 
-     RowBox[{"12", "\[UndirectedEdge]", "11"}], ",", 
-     RowBox[{"11", "\[UndirectedEdge]", "10"}]}], "}"}], ",", 
-   RowBox[{"{", 
-    RowBox[{
-     RowBox[{"12", "\[UndirectedEdge]", "15"}], ",", 
-     RowBox[{"15", "\[UndirectedEdge]", "16"}], ",", 
-     RowBox[{"16", "\[UndirectedEdge]", "14"}], ",", 
-     RowBox[{"14", "\[UndirectedEdge]", "13"}], ",", 
-     RowBox[{"13", "\[UndirectedEdge]", "12"}]}], "}"}], ",", 
-   RowBox[{"{", 
-    RowBox[{
-     RowBox[{"15", "\[UndirectedEdge]", "21"}], ",", 
-     RowBox[{"21", "\[UndirectedEdge]", "22"}], ",", 
-     RowBox[{"22", "\[UndirectedEdge]", "16"}], ",", 
-     RowBox[{"16", "\[UndirectedEdge]", "15"}]}], "}"}], ",", 
-   RowBox[{"{", 
-    RowBox[{
-     RowBox[{"17", "\[UndirectedEdge]", "19"}], ",", 
-     RowBox[{"19", "\[UndirectedEdge]", "20"}], ",", 
-     RowBox[{"20", "\[UndirectedEdge]", "18"}], ",", 
-     RowBox[{"18", "\[UndirectedEdge]", "17"}]}], "}"}], ",", 
-   RowBox[{"{", 
-    RowBox[{
-     RowBox[{"5", "\[UndirectedEdge]", "17"}], ",", 
-     RowBox[{"17", "\[UndirectedEdge]", "18"}], ",", 
-     RowBox[{"18", "\[UndirectedEdge]", "10"}], ",", 
-     RowBox[{"10", "\[UndirectedEdge]", "6"}], ",", 
-     RowBox[{"6", "\[UndirectedEdge]", "5"}]}], "}"}]}], "}"}]], "Output",
- CellChangeTimes->{{3.740586632103902*^9, 3.740586660814803*^9}, 
-   3.7405876551522627`*^9},ExpressionUUID->"2389081c-5636-4d43-9ae8-\
-6a2504054405"]
-}, Open  ]]
+    "OBTENER", " ", "LA", " ", "LISTA", " ", "DE", " ", "LOS", " ", 
+     "VERTICES", " ", "DE", " ", "LA", " ", "PERIFERIA"}], "*)"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"verticesPeriferia", " ", "=", " ", 
+     RowBox[{"getListOfPeriferia", "[", "vertices", "]"}]}], ";"}], 
+   "\[IndentingNewLine]", "\[IndentingNewLine]"}]}]], "Input",
+ CellChangeTimes->{{3.74060313210763*^9, 
+  3.740603180925519*^9}},ExpressionUUID->"afbacb54-11ef-4917-8b03-\
+d5309af93a50"]
 }, Open  ]]
 },
 WindowSize->{1280, 667},
@@ -1174,34 +1086,37 @@ CellTagsIndex->{}
 Notebook[{
 Cell[CellGroupData[{
 Cell[580, 22, 5318, 133, 543, "Input",ExpressionUUID->"e5f0479c-1b31-4a96-9e8a-9c6b1eba33de"],
-Cell[5901, 157, 1466, 33, 350, "Output",ExpressionUUID->"4f572d36-41c8-47b1-aba7-82c8cac7e858"]
+Cell[5901, 157, 1638, 36, 350, "Output",ExpressionUUID->"13988bca-187d-4122-a44a-e147ce38b648"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[7404, 195, 329, 6, 97, "Subchapter",ExpressionUUID->"e52617f4-f5b2-4815-8d3c-523aa6f3afd7"],
-Cell[7736, 203, 555, 15, 49, "Input",ExpressionUUID->"14907490-d65c-4e7f-a631-879f8fcfba16"],
-Cell[8294, 220, 406, 11, 49, "Input",ExpressionUUID->"6d6a2404-a4fb-41ed-aa03-125b9d880ea4"],
-Cell[8703, 233, 368, 11, 46, "Input",ExpressionUUID->"25050875-f441-479e-be65-a6fadec3a953"]
+Cell[7576, 198, 329, 6, 97, "Subchapter",ExpressionUUID->"e52617f4-f5b2-4815-8d3c-523aa6f3afd7"],
+Cell[7908, 206, 555, 15, 49, "Input",ExpressionUUID->"14907490-d65c-4e7f-a631-879f8fcfba16"],
+Cell[8466, 223, 406, 11, 49, "Input",ExpressionUUID->"6d6a2404-a4fb-41ed-aa03-125b9d880ea4"],
+Cell[8875, 236, 368, 11, 46, "Input",ExpressionUUID->"25050875-f441-479e-be65-a6fadec3a953"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[9108, 249, 199, 3, 97, "Subchapter",ExpressionUUID->"92a2e859-2bdd-47c3-99c6-be56e978dcd9"],
-Cell[9310, 254, 424, 10, 109, "Input",ExpressionUUID->"dbc47b46-57a0-412a-9963-8675a9f6f2ac"]
+Cell[9280, 252, 199, 3, 97, "Subchapter",ExpressionUUID->"92a2e859-2bdd-47c3-99c6-be56e978dcd9"],
+Cell[9482, 257, 424, 10, 109, "Input",ExpressionUUID->"dbc47b46-57a0-412a-9963-8675a9f6f2ac"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[9771, 269, 193, 3, 97, "Subchapter",ExpressionUUID->"55f41e09-825a-45b3-9b53-4c4a705fc41a"],
-Cell[9967, 274, 733, 20, 50, "Input",ExpressionUUID->"6e982f42-6ace-441a-8d1d-3b5c226e07cb"]
+Cell[9943, 272, 193, 3, 97, "Subchapter",ExpressionUUID->"55f41e09-825a-45b3-9b53-4c4a705fc41a"],
+Cell[10139, 277, 733, 20, 50, "Input",ExpressionUUID->"6e982f42-6ace-441a-8d1d-3b5c226e07cb"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[10737, 299, 243, 6, 152, "Subchapter",ExpressionUUID->"46a2bdae-5597-4f00-8223-c2d4e4c5713c"],
-Cell[10983, 307, 713, 14, 78, "Input",ExpressionUUID->"afef5334-0224-424e-b641-df2e8a68429c"]
+Cell[10909, 302, 243, 6, 152, "Subchapter",ExpressionUUID->"46a2bdae-5597-4f00-8223-c2d4e4c5713c"],
+Cell[11155, 310, 713, 14, 78, "Input",ExpressionUUID->"afef5334-0224-424e-b641-df2e8a68429c"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[11733, 326, 183, 3, 97, "Subchapter",ExpressionUUID->"cba19f50-e847-45e7-84f0-bc32ff15955c"],
+Cell[11905, 329, 183, 3, 97, "Subchapter",ExpressionUUID->"cba19f50-e847-45e7-84f0-bc32ff15955c"],
+Cell[12091, 334, 25563, 526, 3829, "Input",ExpressionUUID->"5468d494-06df-4476-932d-8101262ad13f"]
+}, Open  ]],
 Cell[CellGroupData[{
-Cell[11941, 333, 22528, 503, 3643, "Input",ExpressionUUID->"5468d494-06df-4476-932d-8101262ad13f"],
-Cell[34472, 838, 1606, 49, 132, "Output",ExpressionUUID->"d10b8cb6-d5cb-4ffe-99e4-f5e0b9a0120b"],
-Cell[36081, 889, 11540, 187, 501, "Output",ExpressionUUID->"3a6c3ed7-206f-4a12-a355-fca5457d49b3"],
-Cell[47624, 1078, 3202, 74, 252, "Output",ExpressionUUID->"2389081c-5636-4d43-9ae8-6a2504054405"]
-}, Open  ]]
+Cell[37691, 865, 197, 3, 97, "Subchapter",ExpressionUUID->"6dacb785-2920-4c48-a544-7ba855e26222"],
+Cell[37891, 870, 6842, 160, 1206, "Input",ExpressionUUID->"4d1dbfff-0b93-4b8c-be0e-101b4bb45e24"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[44770, 1035, 202, 3, 97, "Subchapter",ExpressionUUID->"1e4ab669-0dc5-4761-8a77-faf176a2f47a"],
+Cell[44975, 1040, 935, 25, 260, "Input",ExpressionUUID->"afbacb54-11ef-4917-8b03-d5309af93a50"]
 }, Open  ]]
 }
 ]
